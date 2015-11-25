@@ -19,5 +19,10 @@ namespace SistemaAlergiaAlimentar
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
+        private static void Teste()
+        {
+            //Aqui é um teste!
+        }
     }
 }
