@@ -22,8 +22,7 @@ namespace SistemaAlergiaAlimentar
 
         private static void Teste()
         {//
-            //Aqui é um teste!
-            //Teste2!
+            //Aqui é um teste.
             //Fazendo um teste novo aqui. Alterado em 30.11.2015 as 17:39.
         }
 
