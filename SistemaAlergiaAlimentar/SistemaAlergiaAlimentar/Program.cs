@@ -24,5 +24,10 @@ namespace SistemaAlergiaAlimentar
         {//
             //Aqui é um teste!
         }
+
+        private static void Teste2()
+        {//
+            //Aqui é um teste!
+        }
     }
 }
