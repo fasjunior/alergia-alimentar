@@ -13,7 +13,7 @@ namespace SistemaAlergiaAlimentar
         #region Conexão
         static string serverdb = "localhost";
         static string userdb = "postgres";
-        static string passdb = "@junior172";
+        static string passdb = "1234";
         static string database = "bd_AlergiaAlimentar";
         private string connectionString = "Server=" + serverdb + ";Port=5432;UserID=" + userdb + ";password=" + passdb + ";Database=" + database + ";";
         NpgsqlConnection conn = null;
