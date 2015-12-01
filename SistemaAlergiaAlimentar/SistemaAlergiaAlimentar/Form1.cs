@@ -16,5 +16,18 @@ namespace SistemaAlergiaAlimentar
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dados dados = new Dados();
+            if(dados.conectar())
+            {
+                MessageBox.Show("Conectou");
+            }
+            else
+            {
+                MessageBox.Show("Não Conectou");
+            }
+        }
     }
 }
