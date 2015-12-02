@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace SistemaAlergiaAlimentar
 {
-    public partial class frmSobre : Form
+    public partial class frmEstabelecimento : Form
     {
-        public frmSobre()
+        public frmEstabelecimento()
         {
             InitializeComponent();
         }
-
     }
 }

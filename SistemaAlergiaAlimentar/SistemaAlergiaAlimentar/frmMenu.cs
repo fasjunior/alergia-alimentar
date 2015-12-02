@@ -15,36 +15,52 @@ namespace SistemaAlergiaAlimentar
         public frmMenu()
         {
             InitializeComponent();
+            testarConexao();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+        public void testarConexao() {
+            Dados dados = new Dados();
+            if (dados.conectar())
+            {
+                statusConexao.Text = "Conectado!";
+                statusConexao.Image = global::SistemaAlergiaAlimentar.Properties.Resources.OKIco; ;
+            }
+            else
+            {
+                statusConexao.Text = "Desconectado!";
+                statusConexao.Image = global::SistemaAlergiaAlimentar.Properties.Resources.NoIco;
+            }
         }
 
-        private void frmMenu_Load(object sender, EventArgs e)
+        private void btCadastrar_Click(object sender, EventArgs e)
         {
-
+            frmCadastro cadastroGUI = new frmCadastro();
+            cadastroGUI.Show();
         }
 
-        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        private void itemSobre_Click(object sender, EventArgs e)
         {
-
+            frmSobre sobreGUI = new frmSobre();
+            sobreGUI.Show();
         }
 
-        private void btEntrar_Click(object sender, EventArgs e)
+        private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            if (MessageBox.Show("Deseja realmente sair?", "Encerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void itemSair_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void btPesquisar_Click(object sender, EventArgs e)
         {
-
+            frmPesquisa pesquisaGUI = new frmPesquisa();
+            pesquisaGUI.Show();
         }
     }
 }
