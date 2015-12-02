@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frmEstabelecimento
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "frmEstabelecimento";
+            this.ClientSize = new System.Drawing.Size(371, 278);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "frmEstabelecimento";
+            this.Text = "Estabelecimento";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
