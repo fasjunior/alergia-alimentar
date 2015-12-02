@@ -15,13 +15,13 @@ namespace SistemaAlergiaAlimentar
         public frmPesquisa()
         {
             InitializeComponent();
-            imprimirStatus(false);
+            imprimirStatus(true);
             verificaEstabelecimentoNulo(); 
         }
 
         public void imprimirStatus(bool alergico)
         {
-            if (alergico)
+            if (alergico==false)
             {
                 statusAlergia.Text = "Não ingerir! Este alimento lhe causará alergia!";
                 statusAlergia.Image = global::SistemaAlergiaAlimentar.Properties.Resources.NoIco; ;
@@ -39,13 +39,14 @@ namespace SistemaAlergiaAlimentar
             {
                 cbEstabelecimento.Enabled = false;
                 cbEstabelecimento.Text = "Produto Indisponível!";
-                btEndereco.Enabled = false;
+                //btEndereco.Enabled = false; NÃO MEXER
             }
         }
 
         private void btEndereco_Click(object sender, EventArgs e)
         {
             frmEstabelecimento estabelecimentoGUI = new frmEstabelecimento();
+            //estabelecimentoGUI.preencherCampos("Bompreço", "Rua A", 4589, "Centro", 49010280, "Aracaju", "SE");
             estabelecimentoGUI.Show();
         }
     }

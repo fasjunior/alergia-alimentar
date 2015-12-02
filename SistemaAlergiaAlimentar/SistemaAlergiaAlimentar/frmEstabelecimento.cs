@@ -16,5 +16,28 @@ namespace SistemaAlergiaAlimentar
         {
             InitializeComponent();
         }
+
+        public void preencherCampos(string nome, string endereco, int numero, string bairro, int cep, string cidade, string uf)
+        {
+            label1.Select();
+            txtNome.Text = nome;
+            txtEndereco.Text = endereco;
+            txtNumero.Text = numero.ToString();
+            txtBairro.Text = bairro;
+            txtCEP.Text = cep.ToString();
+            txtCidade.Text = cidade;
+            txtUF.Text = uf;
+        }
+
+        public void zerarCampos()
+        {
+            txtNome.Text = "";
+            txtEndereco.Text = "";
+            txtNumero.Text = "";
+            txtBairro.Text = "";
+            txtCEP.Text = "";
+            txtCidade.Text = "";
+            txtUF.Text = "";
+        }
     }
 }
