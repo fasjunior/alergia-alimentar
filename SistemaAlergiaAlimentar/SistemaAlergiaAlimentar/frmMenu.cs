@@ -15,6 +15,7 @@ namespace SistemaAlergiaAlimentar
         public frmMenu()
         {
             InitializeComponent();
+            InicializaCbUsuario();
             testarConexao();
         }
 
@@ -61,6 +62,19 @@ namespace SistemaAlergiaAlimentar
         {
             frmPesquisa pesquisaGUI = new frmPesquisa();
             pesquisaGUI.Show();
+        }
+
+        private void InicializaCbUsuario()
+        {
+            cbUsuario.Text = " - Selecione um Usuário - ";
+            Dados dados = new Dados();
+            DataTable dtUsuarios = new DataTable();
+            dtUsuarios = dados.ObterTodosUsuarios();
+            List<string> listUsuarios = dtUsuarios.AsEnumerable()
+                                                  .Select(r => r.Field<string>("nome"))
+                                                  .ToList();
+            string[] nomes = listUsuarios.ToArray();
+            cbUsuario.Items.AddRange(nomes);
         }
     }
 }

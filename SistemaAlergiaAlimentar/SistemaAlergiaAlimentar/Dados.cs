@@ -13,7 +13,7 @@ namespace SistemaAlergiaAlimentar
         #region Conexão
         static string serverdb = "localhost";
         static string userdb = "postgres";
-        static string passdb = "1234";
+        static string passdb = "@junior172";
         static string database = "bd_AlergiaAlimentar";
         private string connectionString = "Server=" + serverdb + ";Port=5432;UserID=" + userdb + ";password=" + passdb + ";Database=" + database + ";";
         NpgsqlConnection conn = null;
@@ -48,6 +48,36 @@ namespace SistemaAlergiaAlimentar
             {
                 conn.Dispose();
                 return false;
+            }
+        }
+        #endregion
+
+        #region ObterTodosUsuarios
+        public DataTable ObterTodosUsuarios()
+        {
+            string sql = "SELECT id_usuario, nome FROM usuario.usuario";
+            NpgsqlCommand objcmd = null;
+
+            if(this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+
+                    return dt;
+                }
+                catch(NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
             }
         }
         #endregion

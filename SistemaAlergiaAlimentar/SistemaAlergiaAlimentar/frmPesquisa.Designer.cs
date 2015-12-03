@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPesquisa));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btPesquisar = new System.Windows.Forms.Button();
+            this.txtCodigo = new System.Windows.Forms.MaskedTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbEstabelecimento = new System.Windows.Forms.ComboBox();
+            this.btEndereco = new System.Windows.Forms.Button();
             this.txtMarca = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
@@ -57,16 +62,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusAlergia = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cbEstabelecimento = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btEndereco = new System.Windows.Forms.Button();
-            this.txtCodigo = new System.Windows.Forms.MaskedTextBox();
-            this.btPesquisar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.txtMarca.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,6 +82,54 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(386, 416);
             this.panel1.TabIndex = 1;
+            // 
+            // btPesquisar
+            // 
+            this.btPesquisar.Location = new System.Drawing.Point(247, 61);
+            this.btPesquisar.Name = "btPesquisar";
+            this.btPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btPesquisar.TabIndex = 12;
+            this.btPesquisar.Text = "Pesquisar";
+            this.btPesquisar.UseVisualStyleBackColor = true;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(116, 62);
+            this.txtCodigo.Mask = "000-000-000-000-0";
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(109, 20);
+            this.txtCodigo.TabIndex = 3;
+            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbEstabelecimento);
+            this.groupBox2.Controls.Add(this.btEndereco);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(29, 355);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(333, 55);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Onde encontrar:";
+            // 
+            // cbEstabelecimento
+            // 
+            this.cbEstabelecimento.FormattingEnabled = true;
+            this.cbEstabelecimento.Location = new System.Drawing.Point(6, 20);
+            this.cbEstabelecimento.Name = "cbEstabelecimento";
+            this.cbEstabelecimento.Size = new System.Drawing.Size(274, 21);
+            this.cbEstabelecimento.TabIndex = 3;
+            // 
+            // btEndereco
+            // 
+            this.btEndereco.Image = global::SistemaAlergiaAlimentar.Properties.Resources.Lupa;
+            this.btEndereco.Location = new System.Drawing.Point(290, 12);
+            this.btEndereco.Name = "btEndereco";
+            this.btEndereco.Size = new System.Drawing.Size(37, 37);
+            this.btEndereco.TabIndex = 10;
+            this.btEndereco.UseVisualStyleBackColor = true;
+            this.btEndereco.Click += new System.EventHandler(this.btEndereco_Click);
             // 
             // txtMarca
             // 
@@ -374,11 +422,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 65);
+            this.label1.Location = new System.Drawing.Point(26, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Código:";
+            this.label1.Text = "Código de barras:";
             // 
             // statusStrip1
             // 
@@ -403,54 +451,6 @@
             this.statusAlergia.Text = "Status";
             this.statusAlergia.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
-            // cbEstabelecimento
-            // 
-            this.cbEstabelecimento.FormattingEnabled = true;
-            this.cbEstabelecimento.Location = new System.Drawing.Point(6, 20);
-            this.cbEstabelecimento.Name = "cbEstabelecimento";
-            this.cbEstabelecimento.Size = new System.Drawing.Size(274, 21);
-            this.cbEstabelecimento.TabIndex = 3;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.cbEstabelecimento);
-            this.groupBox2.Controls.Add(this.btEndereco);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(29, 355);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(333, 55);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Onde encontrar:";
-            // 
-            // btEndereco
-            // 
-            this.btEndereco.Image = global::SistemaAlergiaAlimentar.Properties.Resources.Lupa;
-            this.btEndereco.Location = new System.Drawing.Point(290, 12);
-            this.btEndereco.Name = "btEndereco";
-            this.btEndereco.Size = new System.Drawing.Size(37, 37);
-            this.btEndereco.TabIndex = 10;
-            this.btEndereco.UseVisualStyleBackColor = true;
-            this.btEndereco.Click += new System.EventHandler(this.btEndereco_Click);
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(116, 62);
-            this.txtCodigo.Mask = "000-000-000-000-0";
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(109, 20);
-            this.txtCodigo.TabIndex = 3;
-            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btPesquisar
-            // 
-            this.btPesquisar.Location = new System.Drawing.Point(247, 61);
-            this.btPesquisar.Name = "btPesquisar";
-            this.btPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btPesquisar.TabIndex = 12;
-            this.btPesquisar.Text = "Pesquisar";
-            this.btPesquisar.UseVisualStyleBackColor = true;
-            // 
             // frmPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -462,16 +462,16 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPesquisa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pesquisa";
+            this.Text = "Pesquisar Produto";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.txtMarca.ResumeLayout(false);
             this.txtMarca.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

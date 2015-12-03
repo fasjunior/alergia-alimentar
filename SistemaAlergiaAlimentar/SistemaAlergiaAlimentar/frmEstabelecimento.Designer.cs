@@ -39,11 +39,11 @@
             this.txtUF = new System.Windows.Forms.MaskedTextBox();
             this.txtNumero = new System.Windows.Forms.MaskedTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtEndereco = new System.Windows.Forms.TextBox();
-            this.txtBairro = new System.Windows.Forms.TextBox();
-            this.txtCidade = new System.Windows.Forms.TextBox();
-            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
+            this.txtCidade = new System.Windows.Forms.TextBox();
+            this.txtBairro = new System.Windows.Forms.TextBox();
+            this.txtEndereco = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,29 +159,13 @@
             this.panel1.Size = new System.Drawing.Size(397, 119);
             this.panel1.TabIndex = 18;
             // 
-            // txtEndereco
+            // txtNome
             // 
-            this.txtEndereco.Location = new System.Drawing.Point(72, 36);
-            this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.ReadOnly = true;
-            this.txtEndereco.Size = new System.Drawing.Size(311, 20);
-            this.txtEndereco.TabIndex = 18;
-            // 
-            // txtBairro
-            // 
-            this.txtBairro.Location = new System.Drawing.Point(175, 63);
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.ReadOnly = true;
-            this.txtBairro.Size = new System.Drawing.Size(100, 20);
-            this.txtBairro.TabIndex = 19;
-            // 
-            // txtCidade
-            // 
-            this.txtCidade.Location = new System.Drawing.Point(72, 90);
-            this.txtCidade.Name = "txtCidade";
-            this.txtCidade.ReadOnly = true;
-            this.txtCidade.Size = new System.Drawing.Size(252, 20);
-            this.txtCidade.TabIndex = 20;
+            this.txtNome.Location = new System.Drawing.Point(72, 10);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.ReadOnly = true;
+            this.txtNome.Size = new System.Drawing.Size(311, 20);
+            this.txtNome.TabIndex = 22;
             // 
             // txtCEP
             // 
@@ -192,13 +176,29 @@
             this.txtCEP.Size = new System.Drawing.Size(62, 20);
             this.txtCEP.TabIndex = 21;
             // 
-            // txtNome
+            // txtCidade
             // 
-            this.txtNome.Location = new System.Drawing.Point(72, 10);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.ReadOnly = true;
-            this.txtNome.Size = new System.Drawing.Size(311, 20);
-            this.txtNome.TabIndex = 22;
+            this.txtCidade.Location = new System.Drawing.Point(72, 90);
+            this.txtCidade.Name = "txtCidade";
+            this.txtCidade.ReadOnly = true;
+            this.txtCidade.Size = new System.Drawing.Size(252, 20);
+            this.txtCidade.TabIndex = 20;
+            // 
+            // txtBairro
+            // 
+            this.txtBairro.Location = new System.Drawing.Point(175, 63);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.ReadOnly = true;
+            this.txtBairro.Size = new System.Drawing.Size(100, 20);
+            this.txtBairro.TabIndex = 19;
+            // 
+            // txtEndereco
+            // 
+            this.txtEndereco.Location = new System.Drawing.Point(72, 36);
+            this.txtEndereco.Name = "txtEndereco";
+            this.txtEndereco.ReadOnly = true;
+            this.txtEndereco.Size = new System.Drawing.Size(311, 20);
+            this.txtEndereco.TabIndex = 18;
             // 
             // frmEstabelecimento
             // 
@@ -209,7 +209,7 @@
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmEstabelecimento";
-            this.Text = "Estabelecimento";
+            this.Text = "Cadastrar Estabelecimento";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

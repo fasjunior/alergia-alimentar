@@ -42,7 +42,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(152, 96);
+            this.label3.Location = new System.Drawing.Point(174, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(165, 13);
             this.label3.TabIndex = 10;
@@ -51,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(205, 37);
+            this.label2.Location = new System.Drawing.Point(234, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 9;
@@ -61,16 +61,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(171, 21);
+            this.label1.Location = new System.Drawing.Point(169, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 16);
+            this.label1.Size = new System.Drawing.Size(187, 16);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Alergia Alimentar";
+            this.label1.Text = "Sistema Alergia Alimentar";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(162, 119);
+            this.label5.Location = new System.Drawing.Point(185, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(145, 13);
             this.label5.TabIndex = 12;
@@ -79,7 +79,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(171, 59);
+            this.label6.Location = new System.Drawing.Point(197, 59);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(127, 13);
             this.label6.TabIndex = 13;
@@ -88,11 +88,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(156, 83);
+            this.label7.Location = new System.Drawing.Point(140, 83);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 13);
+            this.label7.Size = new System.Drawing.Size(246, 13);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Adrian Costa, Fabiano Andrade,";
+            this.label7.Text = "Desenvolvido por: Adrian Costa, Fabiano Andrade,";
             // 
             // pictureBox1
             // 
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 150);
+            this.ClientSize = new System.Drawing.Size(392, 160);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);

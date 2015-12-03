@@ -34,13 +34,13 @@
             this.btPesquisar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuArquivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemSair = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAjuda = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSobre = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusConexao = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.itemSair = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -93,6 +93,14 @@
             this.menuArquivo.Size = new System.Drawing.Size(61, 20);
             this.menuArquivo.Text = "Arquivo";
             // 
+            // itemSair
+            // 
+            this.itemSair.Image = global::SistemaAlergiaAlimentar.Properties.Resources.ExitIco;
+            this.itemSair.Name = "itemSair";
+            this.itemSair.Size = new System.Drawing.Size(93, 22);
+            this.itemSair.Text = "Sair";
+            this.itemSair.Click += new System.EventHandler(this.itemSair_Click);
+            // 
             // menuAjuda
             // 
             this.menuAjuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -105,7 +113,7 @@
             // 
             this.itemSobre.Image = global::SistemaAlergiaAlimentar.Properties.Resources.AboutIco;
             this.itemSobre.Name = "itemSobre";
-            this.itemSobre.Size = new System.Drawing.Size(152, 22);
+            this.itemSobre.Size = new System.Drawing.Size(104, 22);
             this.itemSobre.Text = "Sobre";
             this.itemSobre.Click += new System.EventHandler(this.itemSobre_Click);
             // 
@@ -155,14 +163,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "USUÁRIO";
             // 
-            // itemSair
-            // 
-            this.itemSair.Image = global::SistemaAlergiaAlimentar.Properties.Resources.ExitIco;
-            this.itemSair.Name = "itemSair";
-            this.itemSair.Size = new System.Drawing.Size(152, 22);
-            this.itemSair.Text = "Sair";
-            this.itemSair.Click += new System.EventHandler(this.itemSair_Click);
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,7 +176,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alergia Alimentar";
+            this.Text = "Sistema Alergia Alimentar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
