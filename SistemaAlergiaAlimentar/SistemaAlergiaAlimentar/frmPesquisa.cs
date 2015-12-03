@@ -325,7 +325,7 @@ namespace SistemaAlergiaAlimentar
 
         private void btPesquisar_Click(object sender, EventArgs e)
         {
-            if(txtCodigo.Text != null  && txtCodigo.Text != "   -   -   -   -")
+            if(txtCodigo.Text != null  && txtCodigo.Text != "   -   -   -    -")
             {
                 //removendo a máscara do código de barras
                 txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
