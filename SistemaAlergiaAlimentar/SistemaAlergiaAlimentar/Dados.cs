@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Npgsql;
+using NpgsqlTypes;
 
 namespace SistemaAlergiaAlimentar
 {
@@ -13,7 +14,7 @@ namespace SistemaAlergiaAlimentar
         #region Conexão
         static string serverdb = "localhost";
         static string userdb = "postgres";
-        static string passdb = "1234";
+        static string passdb = "postgres";
         static string database = "bd_AlergiaAlimentar";
         private string connectionString = "Server=" + serverdb + ";Port=5432;UserID=" + userdb + ";password=" + passdb + ";Database=" + database + ";";
         NpgsqlConnection conn = null;
@@ -51,9 +52,6 @@ namespace SistemaAlergiaAlimentar
             }
         }
         #endregion
-
-
-
 
         #region ObterTodosUsuarios
         public DataTable ObterTodosUsuarios()
@@ -120,6 +118,42 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region ObterSubstanciasDoUsuario
+        public List<string> ObterSubstanciasDoUsuario(int idUsuario)
+        {
+            string sql = "SELECT s.nome FROM produto.substancia AS s JOIN usuario.usuario_substancia AS us ON s.id_substancia = us.id_substancia WHERE us.id_usuario = :idUsuario;";
+            NpgsqlCommand objcmd = null;
+            List<string> substancias = new List<string>();
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("idUsuario", NpgsqlDbType.Integer));
+                    objcmd.Parameters[0].Value = idUsuario;
+                    NpgsqlDataReader dr = objcmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        for (int i = 0; i < dr.FieldCount; i++)
+                        {
+                            substancias.Add(dr.GetString(i));
+                        }
+                    }
+
+                    return substancias;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
 
 
     }

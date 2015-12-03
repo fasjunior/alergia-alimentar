@@ -12,11 +12,54 @@ namespace SistemaAlergiaAlimentar
 {
     public partial class frmPesquisa : Form
     {
+        Dados dados = null;
+
         public frmPesquisa()
         {
             InitializeComponent();
             imprimirStatus(true);
             verificaEstabelecimentoNulo(); 
+        }
+
+        #region SelecionarSubstancias
+        private void SelecionarSubstancias(List<string> substancias)
+        {
+            if(substancias != null)
+            {
+                if (substancias.Contains("Lactose"))
+                {
+                    cbLeite.Font = new Font(cbLeite.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Glúten"))
+                {
+                    cbGluten.Font = new Font(cbGluten.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Ovo"))
+                {
+                    cbOvo.Font = new Font(cbOvo.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Crustáceos"))
+                {
+                    cbFrutosDoMar.Font = new Font(cbFrutosDoMar.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Proteina de soja"))
+                {
+                    cbSoja.Font = new Font(cbSoja.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Trigo"))
+                {
+                    cbTrigo.Font = new Font(cbTrigo.Font, FontStyle.Bold);
+                }
+            }
+        }
+        #endregion
+
+        public void PreencherUsuario(int idUsuario, string nmUsuario)
+        {
+            txtUsuario.Text = nmUsuario.ToUpper();
+            dados = new Dados();
+            List<string> substancias = dados.ObterSubstanciasDoUsuario(idUsuario);
+            SelecionarSubstancias(substancias);
         }
 
         public void imprimirStatus(bool alergico)

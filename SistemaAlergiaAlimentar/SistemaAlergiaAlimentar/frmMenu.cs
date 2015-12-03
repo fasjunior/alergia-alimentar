@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -13,6 +14,21 @@ namespace SistemaAlergiaAlimentar
 {
     public partial class frmMenu : Form
     {
+        private class Item
+        {
+            public string Name;
+            public int Value;
+            public Item(string name, int value)
+            {
+                Name = name; Value = value;
+            }
+            public override string ToString()
+            {
+                // Generates the text shown in the combo box
+                return Name;
+            }
+        }
+
         public frmMenu()
         {
             InitializeComponent();
@@ -64,12 +80,12 @@ namespace SistemaAlergiaAlimentar
         private void btPesquisar_Click(object sender, EventArgs e)
         {
             frmPesquisa pesquisaGUI = new frmPesquisa();
+            Item itemSelecionado = (Item)cbUsuario.SelectedItem;
+            pesquisaGUI.PreencherUsuario(itemSelecionado.Value, itemSelecionado.Name);
             pesquisaGUI.Show();
             this.Hide();
         }
-
-
-
+        
 
         private void InicializaCbUsuario()
         {
@@ -77,11 +93,14 @@ namespace SistemaAlergiaAlimentar
             Dados dados = new Dados();
             DataTable dtUsuarios = new DataTable();
             dtUsuarios = dados.ObterTodosUsuarios();
-            List<string> listUsuarios = dtUsuarios.AsEnumerable()
-                                                  .Select(r => r.Field<string>("nome"))
-                                                  .ToList();
-            string[] nomes = listUsuarios.ToArray();
-            cbUsuario.Items.AddRange(nomes);
+
+            foreach(DataRow dr in dtUsuarios.Rows)
+            {
+                int id = Convert.ToInt32(dr["id_usuario"]);
+                string nome = dr["nome"].ToString();
+                cbUsuario.Items.Add(new Item(nome, id));
+            }
+ 
         }
 
         private void cbUsuario_SelectedIndexChanged(object sender, EventArgs e)

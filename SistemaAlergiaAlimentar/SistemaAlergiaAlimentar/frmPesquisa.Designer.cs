@@ -62,6 +62,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusAlergia = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.txtMarca.SuspendLayout();
@@ -71,6 +73,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtUsuario);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btPesquisar);
             this.panel1.Controls.Add(this.txtCodigo);
             this.panel1.Controls.Add(this.groupBox2);
@@ -208,10 +212,10 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(116, 12);
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(153, 2);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(161, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(85, 17);
             this.lblTitulo.TabIndex = 5;
             this.lblTitulo.Text = "PESQUISA";
             // 
@@ -452,6 +456,23 @@
             this.statusAlergia.Text = "Status";
             this.statusAlergia.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(64, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Usuário:";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Enabled = false;
+            this.txtUsuario.Location = new System.Drawing.Point(116, 35);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(206, 20);
+            this.txtUsuario.TabIndex = 14;
+            // 
             // frmPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,5 +534,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.MaskedTextBox txtCodigo;
         private System.Windows.Forms.Button btPesquisar;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.Label label5;
     }
 }
