@@ -76,5 +76,10 @@ namespace SistemaAlergiaAlimentar
             string[] nomes = listUsuarios.ToArray();
             cbUsuario.Items.AddRange(nomes);
         }
+
+        private void cbUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btPesquisar.Enabled = true;
+        }
     }
 }

@@ -91,6 +91,7 @@
             this.btPesquisar.TabIndex = 12;
             this.btPesquisar.Text = "Pesquisar";
             this.btPesquisar.UseVisualStyleBackColor = true;
+            this.btPesquisar.Click += new System.EventHandler(this.btPesquisar_Click);
             // 
             // txtCodigo
             // 

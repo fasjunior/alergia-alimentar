@@ -49,5 +49,19 @@ namespace SistemaAlergiaAlimentar
             //estabelecimentoGUI.preencherCampos("Bompreço", "Rua A", 4589, "Centro", 49010280, "Aracaju", "SE");
             estabelecimentoGUI.Show();
         }
+
+        private void btPesquisar_Click(object sender, EventArgs e)
+        {
+            if(txtCodigo.Text != null  && txtCodigo.Text != "   -   -   -   -")
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Digite um código de barras!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            
+        }
     }
 }

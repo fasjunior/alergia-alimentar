@@ -53,6 +53,7 @@
             this.cbUsuario.Name = "cbUsuario";
             this.cbUsuario.Size = new System.Drawing.Size(301, 23);
             this.cbUsuario.TabIndex = 0;
+            this.cbUsuario.SelectedIndexChanged += new System.EventHandler(this.cbUsuario_SelectedIndexChanged);
             // 
             // btCadastrar
             // 
@@ -66,6 +67,7 @@
             // 
             // btPesquisar
             // 
+            this.btPesquisar.Enabled = false;
             this.btPesquisar.Location = new System.Drawing.Point(160, 58);
             this.btPesquisar.Name = "btPesquisar";
             this.btPesquisar.Size = new System.Drawing.Size(88, 24);
