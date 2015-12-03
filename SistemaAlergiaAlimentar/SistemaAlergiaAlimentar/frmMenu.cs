@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace SistemaAlergiaAlimentar
 {
@@ -37,12 +38,14 @@ namespace SistemaAlergiaAlimentar
         {
             frmCadastro cadastroGUI = new frmCadastro();
             cadastroGUI.Show();
+            this.Hide();
         }
 
         private void itemSobre_Click(object sender, EventArgs e)
         {
             frmSobre sobreGUI = new frmSobre();
             sobreGUI.Show();
+            this.Hide();
         }
 
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -62,7 +65,11 @@ namespace SistemaAlergiaAlimentar
         {
             frmPesquisa pesquisaGUI = new frmPesquisa();
             pesquisaGUI.Show();
+            this.Hide();
         }
+
+
+
 
         private void InicializaCbUsuario()
         {

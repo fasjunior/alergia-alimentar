@@ -13,7 +13,7 @@ namespace SistemaAlergiaAlimentar
         #region Conexão
         static string serverdb = "localhost";
         static string userdb = "postgres";
-        static string passdb = "@junior172";
+        static string passdb = "1234";
         static string database = "bd_AlergiaAlimentar";
         private string connectionString = "Server=" + serverdb + ";Port=5432;UserID=" + userdb + ";password=" + passdb + ";Database=" + database + ";";
         NpgsqlConnection conn = null;
@@ -52,13 +52,16 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+
+
+
         #region ObterTodosUsuarios
         public DataTable ObterTodosUsuarios()
         {
             string sql = "SELECT id_usuario, nome FROM usuario.usuario";
             NpgsqlCommand objcmd = null;
 
-            if(this.conectar())
+            if (this.conectar())
             {
                 try
                 {
@@ -69,7 +72,7 @@ namespace SistemaAlergiaAlimentar
 
                     return dt;
                 }
-                catch(NpgsqlException ex)
+                catch (NpgsqlException ex)
                 {
                     throw ex;
                 }
@@ -78,6 +81,41 @@ namespace SistemaAlergiaAlimentar
             else
             {
                 return null;
+            }
+        }
+        #endregion
+
+        #region Cadastrar_Usuario
+        public void cadastrar_usuario(string usuario)
+        {
+            if (this.conectar())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO usuario.usuario (nome) VALUES('" + usuario + "')", conn);
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+        #endregion
+
+        #region Cadastrar_Substancia
+        public void cadastrar_substancia(string substancia)
+        {
+            if (this.conectar())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.substancia (nome) VALUES('" + substancia + "');", conn);
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+        #endregion
+
+        #region Cadastrar_Usuario_Substancia
+        public void cadastrar_usuario_substancia(string usuario, string substancia)
+        {
+            if (this.conectar())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO usuario.usuario_substancia (id_usuario, id_substancia) VALUES((select id_usuario from usuario.usuario where nome like '" + usuario + "'), (select id_substancia from produto.substancia where nome like '" + substancia + "'));", conn);
+                cmd.ExecuteNonQuery();
             }
         }
         #endregion

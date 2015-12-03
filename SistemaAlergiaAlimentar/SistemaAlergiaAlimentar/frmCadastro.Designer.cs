@@ -84,6 +84,7 @@
             this.btSalvar.TabIndex = 4;
             this.btSalvar.Text = "Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
             // groupBox1
             // 
@@ -301,6 +302,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCadastro";
             this.Text = "Cadastrar Usuário";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
