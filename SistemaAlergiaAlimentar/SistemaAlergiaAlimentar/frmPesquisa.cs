@@ -14,6 +14,7 @@ namespace SistemaAlergiaAlimentar
     {
         Dados dados = null;
         bool alergia = true;
+        DataTable dtEndereco = null;
 
         public frmPesquisa()
         {
@@ -299,7 +300,7 @@ namespace SistemaAlergiaAlimentar
 
         public void verificaEstabelecimentoNulo()
         {
-            if (cbEstabelecimento.Items.Count.Equals(0))
+            if (cbEstabelecimento.Text == null || cbEstabelecimento.Text == "")
             {
                 cbEstabelecimento.Enabled = false;
                 cbEstabelecimento.Text = "Produto Indisponível!";
@@ -310,8 +311,16 @@ namespace SistemaAlergiaAlimentar
         private void btEndereco_Click(object sender, EventArgs e)
         {
             frmEstabelecimento estabelecimentoGUI = new frmEstabelecimento();
-            //estabelecimentoGUI.preencherCampos("Bompreço", "Rua A", 4589, "Centro", 49010280, "Aracaju", "SE");
-            estabelecimentoGUI.Show();
+            if(dtEndereco != null && dtEndereco.Rows.Count > 0)
+            {
+                estabelecimentoGUI.preencherCampos(cbEstabelecimento.Text, dtEndereco.Rows[0]["endereco"].ToString(),
+                                                   Convert.ToInt32(dtEndereco.Rows[0]["numero"]),
+                                                   dtEndereco.Rows[0]["bairro"].ToString(), Convert.ToInt32(dtEndereco.Rows[0]["cep"]),
+                                                   dtEndereco.Rows[0]["cidade"].ToString(),
+                                                   dtEndereco.Rows[0]["estado"].ToString());
+            }
+            
+            estabelecimentoGUI.ShowDialog();
         }
 
         private void btPesquisar_Click(object sender, EventArgs e)
@@ -338,6 +347,19 @@ namespace SistemaAlergiaAlimentar
                     txtMarca.Text = fabricante;
                     txtProduto.Text = produto;
                     txtTipo.Text = categoria;
+                    DataTable dtEstabelecimento = dados.ObterEstabelecimentoProduto(codBarras);
+                    if(dtEstabelecimento != null && dtEstabelecimento.Rows.Count > 0)
+                    {
+                        int idEndereco = Convert.ToInt32(dtEstabelecimento.Rows[0]["id_endereco"]);
+                        string estabelecimento = dtEstabelecimento.Rows[0]["nome"].ToString();
+                        dtEndereco = dados.ObterEndereco(idEndereco);
+                        cbEstabelecimento.Text = estabelecimento;
+                        verificaEstabelecimentoNulo();
+                    }
+
+                    
+
+
                     imprimirStatus(alergia);
 
                 }

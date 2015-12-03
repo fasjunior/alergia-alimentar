@@ -291,6 +291,70 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region ObterEstabelecimentoProduto
+        public DataTable ObterEstabelecimentoProduto(decimal codBarras)
+        {
+            string sql = "select e.id_estabelecimento, e.id_endereco, e.nome from estabelecimento.estabelecimento as e join estabelecimento.estabelecimento_produto ep on e.id_estabelecimento = ep.id_estabelecimento where ep.cod_barras = :codBarras limit 1;";
+            NpgsqlCommand objcmd = null;
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("codBarras", NpgsqlDbType.Numeric));
+                    objcmd.Parameters[0].Value = codBarras;
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    desconectar();
+
+                    return dt;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region ObterEndereco
+        public DataTable ObterEndereco(int idEndereco)
+        {
+            string sql = "select cep, endereco, numero, estado, cidade, bairro from estabelecimento.endereco where id_endereco = :idEndereco limit 1;";
+            NpgsqlCommand objcmd = null;
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("idEndereco", NpgsqlDbType.Integer));
+                    objcmd.Parameters[0].Value = idEndereco;
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    desconectar();
+
+                    return dt;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
 
     }
 }

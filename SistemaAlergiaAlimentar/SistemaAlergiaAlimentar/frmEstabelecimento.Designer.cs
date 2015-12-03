@@ -59,11 +59,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(330, 94);
+            this.label2.Location = new System.Drawing.Point(236, 93);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 13);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "UF:";
+            this.label2.Text = "Estado:";
             // 
             // label3
             // 
@@ -122,11 +122,11 @@
             // 
             // txtUF
             // 
-            this.txtUF.Location = new System.Drawing.Point(360, 90);
+            this.txtUF.Location = new System.Drawing.Point(287, 90);
             this.txtUF.Mask = ">LL";
             this.txtUF.Name = "txtUF";
             this.txtUF.ReadOnly = true;
-            this.txtUF.Size = new System.Drawing.Size(23, 20);
+            this.txtUF.Size = new System.Drawing.Size(96, 20);
             this.txtUF.TabIndex = 16;
             // 
             // txtNumero
@@ -181,7 +181,7 @@
             this.txtCidade.Location = new System.Drawing.Point(72, 90);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.ReadOnly = true;
-            this.txtCidade.Size = new System.Drawing.Size(252, 20);
+            this.txtCidade.Size = new System.Drawing.Size(158, 20);
             this.txtCidade.TabIndex = 20;
             // 
             // txtBairro
@@ -209,6 +209,7 @@
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmEstabelecimento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Estabelecimento";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
