@@ -54,6 +54,7 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region PreencherUsuario
         public void PreencherUsuario(int idUsuario, string nmUsuario)
         {
             txtUsuario.Text = nmUsuario.ToUpper();
@@ -61,6 +62,7 @@ namespace SistemaAlergiaAlimentar
             List<string> substancias = dados.ObterSubstanciasDoUsuario(idUsuario);
             SelecionarSubstancias(substancias);
         }
+        #endregion
 
         public void imprimirStatus(bool alergico)
         {

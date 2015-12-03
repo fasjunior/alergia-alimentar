@@ -155,6 +155,38 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region ObterProduto
+        public DataTable ObterProduto(decimal codBarras)
+        {
+            string sql = "select id_fabricante, nome from produto.produto where cod_barras = :codBarras;";
+            NpgsqlCommand objcmd = null;
+            List<string> substancias = new List<string>();
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("codBarras", NpgsqlDbType.Numeric));
+                    objcmd.Parameters[0].Value = codBarras;
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+
+                    return dt;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
 
     }
 }
