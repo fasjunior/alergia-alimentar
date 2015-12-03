@@ -30,16 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPesquisa));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btPesquisar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbEstabelecimento = new System.Windows.Forms.ComboBox();
             this.btEndereco = new System.Windows.Forms.Button();
-            this.txtMarca = new System.Windows.Forms.GroupBox();
+            this.txtInformacao = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtProduto = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -62,11 +64,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusAlergia = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.txtMarca.SuspendLayout();
+            this.txtInformacao.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +78,7 @@
             this.panel1.Controls.Add(this.btPesquisar);
             this.panel1.Controls.Add(this.txtCodigo);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.txtMarca);
+            this.panel1.Controls.Add(this.txtInformacao);
             this.panel1.Controls.Add(this.lblTitulo);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label1);
@@ -86,6 +86,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(386, 416);
             this.panel1.TabIndex = 1;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Enabled = false;
+            this.txtUsuario.Location = new System.Drawing.Point(116, 35);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(206, 20);
+            this.txtUsuario.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(64, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Usuário:";
             // 
             // btPesquisar
             // 
@@ -100,7 +117,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(116, 62);
-            this.txtCodigo.Mask = "000-000-000-000-0";
+            this.txtCodigo.Mask = "000-000-000-0000-0";
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(109, 20);
             this.txtCodigo.TabIndex = 3;
@@ -136,21 +153,21 @@
             this.btEndereco.UseVisualStyleBackColor = true;
             this.btEndereco.Click += new System.EventHandler(this.btEndereco_Click);
             // 
-            // txtMarca
+            // txtInformacao
             // 
-            this.txtMarca.Controls.Add(this.label4);
-            this.txtMarca.Controls.Add(this.txtTipo);
-            this.txtMarca.Controls.Add(this.label3);
-            this.txtMarca.Controls.Add(this.textBox2);
-            this.txtMarca.Controls.Add(this.label2);
-            this.txtMarca.Controls.Add(this.txtProduto);
-            this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.Location = new System.Drawing.Point(29, 92);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(333, 108);
-            this.txtMarca.TabIndex = 9;
-            this.txtMarca.TabStop = false;
-            this.txtMarca.Text = "Informações:";
+            this.txtInformacao.Controls.Add(this.label4);
+            this.txtInformacao.Controls.Add(this.txtTipo);
+            this.txtInformacao.Controls.Add(this.label3);
+            this.txtInformacao.Controls.Add(this.txtMarca);
+            this.txtInformacao.Controls.Add(this.label2);
+            this.txtInformacao.Controls.Add(this.txtProduto);
+            this.txtInformacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInformacao.Location = new System.Drawing.Point(28, 92);
+            this.txtInformacao.Name = "txtInformacao";
+            this.txtInformacao.Size = new System.Drawing.Size(333, 108);
+            this.txtInformacao.TabIndex = 9;
+            this.txtInformacao.TabStop = false;
+            this.txtInformacao.Text = "Informações:";
             // 
             // label4
             // 
@@ -181,14 +198,14 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Marca:";
             // 
-            // textBox2
+            // txtMarca
             // 
-            this.textBox2.Location = new System.Drawing.Point(55, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(265, 20);
-            this.textBox2.TabIndex = 15;
-            this.textBox2.TabStop = false;
+            this.txtMarca.Location = new System.Drawing.Point(55, 55);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.ReadOnly = true;
+            this.txtMarca.Size = new System.Drawing.Size(265, 20);
+            this.txtMarca.TabIndex = 15;
+            this.txtMarca.TabStop = false;
             // 
             // label2
             // 
@@ -456,23 +473,6 @@
             this.statusAlergia.Text = "Status";
             this.statusAlergia.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(64, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Usuário:";
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Enabled = false;
-            this.txtUsuario.Location = new System.Drawing.Point(116, 35);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(206, 20);
-            this.txtUsuario.TabIndex = 14;
-            // 
             // frmPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,8 +488,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.txtMarca.ResumeLayout(false);
-            this.txtMarca.PerformLayout();
+            this.txtInformacao.ResumeLayout(false);
+            this.txtInformacao.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -522,11 +522,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusAlergia;
-        private System.Windows.Forms.GroupBox txtMarca;
+        private System.Windows.Forms.GroupBox txtInformacao;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtProduto;
         private System.Windows.Forms.Button btEndereco;

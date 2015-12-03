@@ -67,14 +67,14 @@ namespace SistemaAlergiaAlimentar
                     NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
-
+                    desconectar();
                     return dt;
                 }
                 catch (NpgsqlException ex)
                 {
                     throw ex;
                 }
-
+                
             }
             else
             {
@@ -90,6 +90,8 @@ namespace SistemaAlergiaAlimentar
             {
                 NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO usuario.usuario (nome) VALUES('" + usuario + "')", conn);
                 cmd.ExecuteNonQuery();
+
+                desconectar();
             }
 
         }
@@ -102,6 +104,8 @@ namespace SistemaAlergiaAlimentar
             {
                 NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.substancia (nome) VALUES('" + substancia + "');", conn);
                 cmd.ExecuteNonQuery();
+
+                desconectar();
             }
 
         }
@@ -114,6 +118,8 @@ namespace SistemaAlergiaAlimentar
             {
                 NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO usuario.usuario_substancia (id_usuario, id_substancia) VALUES((select id_usuario from usuario.usuario where nome like '" + usuario + "'), (select id_substancia from produto.substancia where nome like '" + substancia + "'));", conn);
                 cmd.ExecuteNonQuery();
+
+                desconectar();
             }
         }
         #endregion
@@ -140,6 +146,47 @@ namespace SistemaAlergiaAlimentar
                         }
                     }
 
+                    desconectar();
+
+                    return substancias;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region ObterSubstanciasDoProduto
+        public List<string> ObterSubstanciasDoProduto(decimal codBarras)
+        {
+            string sql = "SELECT s.nome FROM produto.substancia AS s JOIN produto.produto_substancia AS ps ON s.id_substancia = ps.id_substancia WHERE ps.cod_barras = :codBarras;";
+            NpgsqlCommand objcmd = null;
+            List<string> substancias = new List<string>();
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("codBarras", NpgsqlDbType.Numeric));
+                    objcmd.Parameters[0].Value = codBarras;
+                    NpgsqlDataReader dr = objcmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        for (int i = 0; i < dr.FieldCount; i++)
+                        {
+                            substancias.Add(dr.GetString(i));
+                        }
+                    }
+
+                    desconectar();
+
                     return substancias;
                 }
                 catch (NpgsqlException ex)
@@ -158,9 +205,8 @@ namespace SistemaAlergiaAlimentar
         #region ObterProduto
         public DataTable ObterProduto(decimal codBarras)
         {
-            string sql = "select id_fabricante, nome from produto.produto where cod_barras = :codBarras;";
+            string sql = "select id_fabricante, id_categoria, nome from produto.produto where cod_barras = :codBarras;";
             NpgsqlCommand objcmd = null;
-            List<string> substancias = new List<string>();
             if (this.conectar())
             {
                 try
@@ -171,14 +217,72 @@ namespace SistemaAlergiaAlimentar
                     NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
-
+                    desconectar();
                     return dt;
                 }
                 catch (NpgsqlException ex)
                 {
                     throw ex;
                 }
+                
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
 
+        #region ObterFabricante
+        public string ObterFabricante(int idFabricante)
+        {
+            string sql = "select nome from produto.fabricante where id_fabricante = :idFabricante;";
+            NpgsqlCommand objcmd = null;
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("idFabricante", NpgsqlDbType.Integer));
+                    objcmd.Parameters[0].Value = idFabricante;
+                    string fabricante = (string)objcmd.ExecuteScalar();
+                    desconectar();
+                    return fabricante;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+             
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region ObterCategoria
+        public string ObterCategoria(int idCategoria)
+        {
+            string sql = "select nome from produto.categoria where id_categoria = :idCategoria;";
+            NpgsqlCommand objcmd = null;
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("idCategoria", NpgsqlDbType.Integer));
+                    objcmd.Parameters[0].Value = idCategoria;
+                    string categoria = (string)objcmd.ExecuteScalar();
+                    desconectar();
+                    return categoria;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+                
             }
             else
             {
