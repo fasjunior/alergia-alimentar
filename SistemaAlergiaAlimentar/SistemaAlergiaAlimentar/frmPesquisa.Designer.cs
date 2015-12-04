@@ -64,6 +64,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusAlergia = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.txtInformacao.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.txtUsuario);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btPesquisar);
@@ -84,7 +86,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(386, 416);
+            this.panel1.Size = new System.Drawing.Size(386, 441);
             this.panel1.TabIndex = 1;
             // 
             // txtUsuario
@@ -455,7 +457,7 @@
             this.statusStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusAlergia});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 456);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(413, 22);
             this.statusStrip1.SizingGrip = false;
@@ -473,11 +475,21 @@
             this.statusAlergia.Text = "Status";
             this.statusAlergia.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Location = new System.Drawing.Point(156, 409);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(62, 23);
+            this.btnVoltar.TabIndex = 15;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
             // frmPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 453);
+            this.ClientSize = new System.Drawing.Size(413, 478);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -536,5 +548,6 @@
         private System.Windows.Forms.Button btPesquisar;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }
