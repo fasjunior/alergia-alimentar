@@ -102,9 +102,13 @@ namespace SistemaAlergiaAlimentar
         {
             if (this.conectar())
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.substancia (nome) VALUES('" + substancia + "');", conn);
-                cmd.ExecuteNonQuery();
-
+                try {
+                    NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.substancia (nome) VALUES('" + substancia + "');", conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (NpgsqlException ex)
+                {
+                }
                 desconectar();
             }
 
