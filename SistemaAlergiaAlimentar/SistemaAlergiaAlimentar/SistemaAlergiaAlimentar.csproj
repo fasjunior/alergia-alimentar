@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,12 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dados.cs" />
-    <Compile Include="frmSugestao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSugestao.Designer.cs">
-      <DependentUpon>frmSugestao.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCadastro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,9 +100,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmSugestao.resx">
-      <DependentUpon>frmSugestao.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastro.resx">
       <DependentUpon>frmCadastro.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,19 +158,16 @@
     <None Include="Icons\Lupa.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\TimeIco.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\DataIco.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\AlergiaAlimentar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\AlergiaAlimentar1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\Icon256x256App.ico" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

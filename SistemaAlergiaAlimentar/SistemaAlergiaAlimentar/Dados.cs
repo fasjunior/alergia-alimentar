@@ -31,7 +31,7 @@ namespace SistemaAlergiaAlimentar
                 conn.Open();
                 return true;
             }
-            catch(NpgsqlException ex)
+            catch
             {
                 return false;
             }
@@ -108,7 +108,7 @@ namespace SistemaAlergiaAlimentar
                     NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.substancia (nome) VALUES('" + substancia + "');", conn);
                     cmd.ExecuteNonQuery();
                 }
-                catch (NpgsqlException ex)
+                catch
                 {
                 }
                 desconectar();

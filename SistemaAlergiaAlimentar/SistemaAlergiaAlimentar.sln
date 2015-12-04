@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaAlergiaAlimentar", "SistemaAlergiaAlimentar\SistemaAlergiaAlimentar.csproj", "{DEE71726-7EAA-4525-824E-27E72E7CAACC}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupSistemaAlergiaAlimentar", "SetupSistemaAlergiaAlimentar\SetupSistemaAlergiaAlimentar.vdproj", "{665E3AEB-54DE-4211-A9D3-04D1945C0867}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665E3AEB-54DE-4211-A9D3-04D1945C0867}.Debug|Any CPU.ActiveCfg = Debug
+		{665E3AEB-54DE-4211-A9D3-04D1945C0867}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
