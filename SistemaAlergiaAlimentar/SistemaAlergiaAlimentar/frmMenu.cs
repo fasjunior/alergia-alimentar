@@ -36,7 +36,8 @@ namespace SistemaAlergiaAlimentar
             testarConexao();
         }
 
-        public void testarConexao() {
+        public void testarConexao()
+        {
             Dados dados = new Dados();
             if (dados.conectar())
             {
@@ -53,15 +54,13 @@ namespace SistemaAlergiaAlimentar
         private void btCadastrar_Click(object sender, EventArgs e)
         {
             frmCadastro cadastroGUI = new frmCadastro();
-            cadastroGUI.Show();
-            this.Hide();
+            cadastroGUI.ShowDialog();
         }
 
         private void itemSobre_Click(object sender, EventArgs e)
         {
             frmSobre sobreGUI = new frmSobre();
-            sobreGUI.Show();
-            this.Hide();
+            sobreGUI.ShowDialog();
         }
 
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -82,10 +81,9 @@ namespace SistemaAlergiaAlimentar
             frmPesquisa pesquisaGUI = new frmPesquisa();
             Item itemSelecionado = (Item)cbUsuario.SelectedItem;
             pesquisaGUI.PreencherUsuario(itemSelecionado.Value, itemSelecionado.Name);
-            pesquisaGUI.Show();
-            this.Hide();
+            pesquisaGUI.ShowDialog();
         }
-        
+
 
         private void InicializaCbUsuario()
         {
@@ -94,13 +92,13 @@ namespace SistemaAlergiaAlimentar
             DataTable dtUsuarios = new DataTable();
             dtUsuarios = dados.ObterTodosUsuarios();
 
-            foreach(DataRow dr in dtUsuarios.Rows)
+            foreach (DataRow dr in dtUsuarios.Rows)
             {
                 int id = Convert.ToInt32(dr["id_usuario"]);
                 string nome = dr["nome"].ToString();
                 cbUsuario.Items.Add(new Item(nome, id));
             }
- 
+
         }
 
         private void cbUsuario_SelectedIndexChanged(object sender, EventArgs e)

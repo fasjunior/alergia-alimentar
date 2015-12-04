@@ -21,15 +21,10 @@ namespace SistemaAlergiaAlimentar
         private void btSalvar_Click(object sender, EventArgs e)
         {
             dados = new Dados();
-
             dados.cadastrar_usuario(txtNome.Text);
             cadastrar_subst_usuario();
+            this.Close();
 
-
-
-            frmMenu fMenu = new frmMenu();
-            fMenu.Show();
-            this.Hide();
         }
 
         public void cadastrar_subst_usuario()
@@ -74,10 +69,10 @@ namespace SistemaAlergiaAlimentar
                 dados.cadastrar_substancia(cbGluten.Text);
                 dados.cadastrar_usuario_substancia(txtNome.Text, cbGluten.Text);
             }
-            if (cbLeite.Checked)
+            if (cbLactose.Checked)
             {
-                dados.cadastrar_substancia(cbLeite.Text);
-                dados.cadastrar_usuario_substancia(txtNome.Text, cbLeite.Text);
+                dados.cadastrar_substancia(cbLactose.Text);
+                dados.cadastrar_usuario_substancia(txtNome.Text, cbLactose.Text);
             }
             if (cbNozes.Checked)
             {
@@ -109,13 +104,6 @@ namespace SistemaAlergiaAlimentar
                 dados.cadastrar_substancia(cbTrigo.Text);
                 dados.cadastrar_usuario_substancia(txtNome.Text, cbTrigo.Text);
             }
-        }
-
-        private void frm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            frmMenu fMenu = new frmMenu();
-            fMenu.Show();
-            this.Hide();
         }
     }
 }

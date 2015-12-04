@@ -31,6 +31,7 @@ namespace SistemaAlergiaAlimentar
 
         public void zerarCampos()
         {
+            label1.Select();
             txtNome.Text = "";
             txtEndereco.Text = "";
             txtNumero.Text = "";

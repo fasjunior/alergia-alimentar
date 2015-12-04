@@ -57,22 +57,24 @@
             // 
             // btCadastrar
             // 
+            this.btCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCadastrar.Location = new System.Drawing.Point(66, 58);
             this.btCadastrar.Name = "btCadastrar";
             this.btCadastrar.Size = new System.Drawing.Size(88, 24);
             this.btCadastrar.TabIndex = 2;
-            this.btCadastrar.Text = "Cadastrar";
+            this.btCadastrar.Text = "Novo";
             this.btCadastrar.UseVisualStyleBackColor = true;
             this.btCadastrar.Click += new System.EventHandler(this.btCadastrar_Click);
             // 
             // btPesquisar
             // 
             this.btPesquisar.Enabled = false;
+            this.btPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPesquisar.Location = new System.Drawing.Point(160, 58);
             this.btPesquisar.Name = "btPesquisar";
             this.btPesquisar.Size = new System.Drawing.Size(88, 24);
             this.btPesquisar.TabIndex = 3;
-            this.btPesquisar.Text = "Pesquisar";
+            this.btPesquisar.Text = "Entrar";
             this.btPesquisar.UseVisualStyleBackColor = true;
             this.btPesquisar.Click += new System.EventHandler(this.btPesquisar_Click);
             // 
@@ -173,9 +175,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Alergia Alimentar";

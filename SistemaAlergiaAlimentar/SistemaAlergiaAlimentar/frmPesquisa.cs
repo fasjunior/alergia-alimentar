@@ -29,7 +29,7 @@ namespace SistemaAlergiaAlimentar
             {
                 if (substancias.Contains("Lactose"))
                 {
-                    cbLeite.Font = new Font(cbLeite.Font, FontStyle.Bold);
+                    cbLactose.Font = new Font(cbLactose.Font, FontStyle.Bold);
                 }
                 if (substancias.Contains("Glúten"))
                 {
@@ -63,17 +63,17 @@ namespace SistemaAlergiaAlimentar
             {
                 if (substancias.Contains("Lactose"))
                 {
-                    cbLeite.Checked = true;
-                    if(cbLeite.Font.Bold)
+                    cbLactose.Checked = true;
+                    if(cbLactose.Font.Bold)
                     {
-                        cbLeite.ForeColor = Color.Red;
+                        cbLactose.ForeColor = Color.Red;
                         alergia = false;
                     }
                 }
                 else
                 {
-                    cbLeite.Checked = false;
-                    cbLeite.ForeColor = Color.Black;
+                    cbLactose.Checked = false;
+                    cbLactose.ForeColor = Color.Black;
                 }
 
                 if (substancias.Contains("Glúten"))
@@ -304,7 +304,7 @@ namespace SistemaAlergiaAlimentar
             {
                 cbEstabelecimento.Enabled = false;
                 cbEstabelecimento.Text = "Produto Indisponível!";
-                //btEndereco.Enabled = false; NÃO MEXER
+                btEndereco.Enabled = false; //NÃO MEXER
             }
         }
 
@@ -356,10 +356,6 @@ namespace SistemaAlergiaAlimentar
                         cbEstabelecimento.Text = estabelecimento;
                         verificaEstabelecimentoNulo();
                     }
-
-                    
-
-
                     imprimirStatus(alergia);
 
                 }
