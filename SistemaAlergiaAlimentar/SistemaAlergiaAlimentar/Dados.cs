@@ -298,7 +298,7 @@ namespace SistemaAlergiaAlimentar
         #region ObterEstabelecimentoProduto
         public DataTable ObterEstabelecimentoProduto(decimal codBarras)
         {
-            string sql = "select e.id_estabelecimento, e.id_endereco, e.nome from estabelecimento.estabelecimento as e join estabelecimento.estabelecimento_produto ep on e.id_estabelecimento = ep.id_estabelecimento where ep.cod_barras = :codBarras limit 1;";
+            string sql = "select e.id_estabelecimento, e.id_endereco, e.nome from estabelecimento.estabelecimento as e join estabelecimento.estabelecimento_produto ep on e.id_estabelecimento = ep.id_estabelecimento where ep.cod_barras = :codBarras;";
             NpgsqlCommand objcmd = null;
             if (this.conectar())
             {
@@ -355,6 +355,35 @@ namespace SistemaAlergiaAlimentar
             else
             {
                 return null;
+            }
+        }
+        #endregion
+
+        #region ObterIdEnderecoDoEstabelecimento
+        public int ObterIdEnderecoDoEstabelecimento(int idEstabelecimento)
+        {
+            string sql = "select id_endereco from estabelecimento.estabelecimento where id_estabelecimento = :idEstabelecimento limit 1;";
+            NpgsqlCommand objcmd = null;
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("idEstabelecimento", NpgsqlDbType.Integer));
+                    objcmd.Parameters[0].Value = idEstabelecimento;
+                    int idEndereco = (int)objcmd.ExecuteScalar();
+                    desconectar();
+                    return idEndereco;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return 0;
             }
         }
         #endregion

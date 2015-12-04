@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPesquisa));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btVoltar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.cbAmendoim = new System.Windows.Forms.CheckBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusAlergia = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btVoltar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,6 +84,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(386, 444);
             this.panel1.TabIndex = 1;
+            // 
+            // btVoltar
+            // 
+            this.btVoltar.Location = new System.Drawing.Point(151, 414);
+            this.btVoltar.Name = "btVoltar";
+            this.btVoltar.Size = new System.Drawing.Size(88, 24);
+            this.btVoltar.TabIndex = 12;
+            this.btVoltar.Text = "Voltar";
+            this.btVoltar.UseVisualStyleBackColor = true;
+            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
             // 
             // groupBox3
             // 
@@ -167,6 +177,7 @@
             this.cbEstabelecimento.Name = "cbEstabelecimento";
             this.cbEstabelecimento.Size = new System.Drawing.Size(274, 21);
             this.cbEstabelecimento.TabIndex = 3;
+            this.cbEstabelecimento.SelectedIndexChanged += new System.EventHandler(this.cbEstabelecimento_SelectedIndexChanged);
             // 
             // btEndereco
             // 
@@ -478,16 +489,6 @@
             this.statusAlergia.Spring = true;
             this.statusAlergia.Text = "Status";
             this.statusAlergia.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            // 
-            // btVoltar
-            // 
-            this.btVoltar.Location = new System.Drawing.Point(151, 414);
-            this.btVoltar.Name = "btVoltar";
-            this.btVoltar.Size = new System.Drawing.Size(88, 24);
-            this.btVoltar.TabIndex = 12;
-            this.btVoltar.Text = "Voltar";
-            this.btVoltar.UseVisualStyleBackColor = true;
-            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
             // 
             // frmPesquisa
             // 

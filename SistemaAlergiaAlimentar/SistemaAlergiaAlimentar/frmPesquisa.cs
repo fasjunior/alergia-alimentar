@@ -12,9 +12,24 @@ namespace SistemaAlergiaAlimentar
 {
     public partial class frmPesquisa : Form
     {
+
         Dados dados = null;
         bool alergia = true;
-        DataTable dtEndereco = null;
+
+        private class Item
+        {
+            public string Name;
+            public int Value;
+            public Item(string name, int value)
+            {
+                Name = name; Value = value;
+            }
+            public override string ToString()
+            {
+                // Generates the text shown in the combo box
+                return Name;
+            }
+        }
 
         public frmPesquisa()
         {
@@ -307,19 +322,33 @@ namespace SistemaAlergiaAlimentar
                 cbEstabelecimento.Text = "Produto Indisponível!";
                 btEndereco.Enabled = false; //NÃO MEXER
             }
+            else
+            {
+                cbEstabelecimento.Enabled = true;
+                btEndereco.Enabled = true; //NÃO MEXER
+            }
         }
 
         private void btEndereco_Click(object sender, EventArgs e)
         {
             frmEstabelecimento estabelecimentoGUI = new frmEstabelecimento();
-            if(dtEndereco != null && dtEndereco.Rows.Count > 0)
+            if (cbEstabelecimento != null && cbEstabelecimento.Items.Count > 0)
             {
-                estabelecimentoGUI.preencherCampos(cbEstabelecimento.Text, dtEndereco.Rows[0]["endereco"].ToString(),
-                                                   Convert.ToInt32(dtEndereco.Rows[0]["numero"]),
-                                                   dtEndereco.Rows[0]["bairro"].ToString(), Convert.ToInt32(dtEndereco.Rows[0]["cep"]),
-                                                   dtEndereco.Rows[0]["cidade"].ToString(),
-                                                   dtEndereco.Rows[0]["estado"].ToString());
+                dados = new Dados();
+                Item itemSelecionado = (Item)cbEstabelecimento.SelectedItem;
+                int idEndereco = dados.ObterIdEnderecoDoEstabelecimento(itemSelecionado.Value);
+                DataTable dtEndereco = dados.ObterEndereco(idEndereco);
+                string estabelecimento = itemSelecionado.Name;
+                if (dtEndereco != null && dtEndereco.Rows.Count > 0)
+                {
+                    estabelecimentoGUI.preencherCampos(estabelecimento, dtEndereco.Rows[0]["endereco"].ToString(),
+                                                       Convert.ToInt32(dtEndereco.Rows[0]["numero"]),
+                                                       dtEndereco.Rows[0]["bairro"].ToString(), Convert.ToInt32(dtEndereco.Rows[0]["cep"]),
+                                                       dtEndereco.Rows[0]["cidade"].ToString(),
+                                                       dtEndereco.Rows[0]["estado"].ToString());
+                }
             }
+            
             
             estabelecimentoGUI.ShowDialog();
         }
@@ -332,10 +361,12 @@ namespace SistemaAlergiaAlimentar
                 txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                 string strCodBarras = txtCodigo.Text.Replace(" ","").Trim();
                 decimal codBarras = Convert.ToDecimal(strCodBarras);
-
+                
                 //colocando novamente a máscara do código de barras
                 txtCodigo.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
                 DataTable dtProduto = dados.ObterProduto(codBarras);
+                btEndereco.Enabled = false;
+                cbEstabelecimento.Items.Clear();
                 if (dtProduto != null && dtProduto.Rows.Count > 0)
                 {
                     int idFabricante = Convert.ToInt32(dtProduto.Rows[0]["id_fabricante"]);
@@ -351,12 +382,17 @@ namespace SistemaAlergiaAlimentar
                     DataTable dtEstabelecimento = dados.ObterEstabelecimentoProduto(codBarras);
                     if(dtEstabelecimento != null && dtEstabelecimento.Rows.Count > 0)
                     {
-                        int idEndereco = Convert.ToInt32(dtEstabelecimento.Rows[0]["id_endereco"]);
-                        string estabelecimento = dtEstabelecimento.Rows[0]["nome"].ToString();
-                        dtEndereco = dados.ObterEndereco(idEndereco);
-                        cbEstabelecimento.Text = estabelecimento;
-                        verificaEstabelecimentoNulo();
+                        foreach (DataRow dr in dtEstabelecimento.Rows)
+                        {
+                            int id = Convert.ToInt32(dr["id_estabelecimento"]);
+                            string nome = dr["nome"].ToString();
+                            cbEstabelecimento.Items.Add(new Item(nome, id));
+                        }
+                        cbEstabelecimento.Enabled = true;
+                        cbEstabelecimento.Text = " - Selecione um estabelecimento - ";
                     }
+                    
+                    
                     imprimirStatus(alergia);
 
                 }
@@ -381,6 +417,11 @@ namespace SistemaAlergiaAlimentar
         private void btVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbEstabelecimento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btEndereco.Enabled = true;
         }
     }
 }
