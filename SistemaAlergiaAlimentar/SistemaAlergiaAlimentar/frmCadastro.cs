@@ -24,7 +24,6 @@ namespace SistemaAlergiaAlimentar
             dados.cadastrar_usuario(txtNome.Text);
             cadastrar_subst_usuario();
             this.Close();
-
         }
 
         public void cadastrar_subst_usuario()

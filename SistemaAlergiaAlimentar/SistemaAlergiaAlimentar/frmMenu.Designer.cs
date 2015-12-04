@@ -126,7 +126,7 @@
             this.statusConexao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusConexao.Name = "statusConexao";
             this.statusConexao.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.statusConexao.Size = new System.Drawing.Size(209, 17);
+            this.statusConexao.Size = new System.Drawing.Size(240, 17);
             this.statusConexao.Spring = true;
             this.statusConexao.Text = "Status SQL";
             this.statusConexao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
