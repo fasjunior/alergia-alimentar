@@ -349,8 +349,7 @@ namespace SistemaAlergiaAlimentar
                 DialogResult qSimilares = MessageBox.Show("Deseja sugestão de produtos similares que não lhe causem alergia?", "Podemos sugerir outro produto?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if(qSimilares == DialogResult.Yes)
                 {
-                    frmSugestao sugestaoGUI = new frmSugestao();
-                    sugestaoGUI.ShowDialog();
+
                 }
             }
             else
@@ -454,6 +453,11 @@ namespace SistemaAlergiaAlimentar
             }
 
             
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
 
         private void btVoltar_Click(object sender, EventArgs e)
