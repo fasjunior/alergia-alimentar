@@ -73,6 +73,36 @@ namespace SistemaAlergiaAlimentar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AlergiaAlimentar {
+            get {
+                object obj = ResourceManager.GetObject("AlergiaAlimentar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AlergiaAlimentar1 {
+            get {
+                object obj = ResourceManager.GetObject("AlergiaAlimentar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DataIco {
+            get {
+                object obj = ResourceManager.GetObject("DataIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ExitIco {
             get {
                 object obj = ResourceManager.GetObject("ExitIco", resourceCulture);
@@ -83,9 +113,29 @@ namespace SistemaAlergiaAlimentar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icon256x256App {
+            get {
+                object obj = ResourceManager.GetObject("Icon256x256App", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lupa {
             get {
                 object obj = ResourceManager.GetObject("Lupa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lupa1 {
+            get {
+                object obj = ResourceManager.GetObject("Lupa1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +156,16 @@ namespace SistemaAlergiaAlimentar.Properties {
         internal static System.Drawing.Bitmap OKIco {
             get {
                 object obj = ResourceManager.GetObject("OKIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TimeIco {
+            get {
+                object obj = ResourceManager.GetObject("TimeIco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

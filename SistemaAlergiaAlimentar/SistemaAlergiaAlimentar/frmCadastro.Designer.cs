@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastro));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btVoltar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.cbChocolate = new System.Windows.Forms.CheckBox();
             this.cbCastanha = new System.Windows.Forms.CheckBox();
             this.cbAmendoim = new System.Windows.Forms.CheckBox();
-            this.btVoltar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,6 +66,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(386, 252);
             this.panel1.TabIndex = 0;
+            // 
+            // btVoltar
+            // 
+            this.btVoltar.Location = new System.Drawing.Point(194, 217);
+            this.btVoltar.Name = "btVoltar";
+            this.btVoltar.Size = new System.Drawing.Size(88, 24);
+            this.btVoltar.TabIndex = 5;
+            this.btVoltar.Text = "Voltar";
+            this.btVoltar.UseVisualStyleBackColor = true;
+            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
             // 
             // groupBox2
             // 
@@ -297,21 +307,11 @@
             this.cbAmendoim.Text = "Amendoim";
             this.cbAmendoim.UseVisualStyleBackColor = true;
             // 
-            // btVoltar
-            // 
-            this.btVoltar.Location = new System.Drawing.Point(194, 217);
-            this.btVoltar.Name = "btVoltar";
-            this.btVoltar.Size = new System.Drawing.Size(88, 24);
-            this.btVoltar.TabIndex = 5;
-            this.btVoltar.Text = "Voltar";
-            this.btVoltar.UseVisualStyleBackColor = true;
-            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
-            // 
             // frmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 266);
+            this.ClientSize = new System.Drawing.Size(410, 266);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

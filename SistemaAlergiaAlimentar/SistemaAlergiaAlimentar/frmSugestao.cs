@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SistemaAlergiaAlimentar
 {
-    public partial class Form1 : Form
+    public partial class frmSugestao : Form
     {
-        public Form1()
+        public frmSugestao()
         {
             InitializeComponent();
         }

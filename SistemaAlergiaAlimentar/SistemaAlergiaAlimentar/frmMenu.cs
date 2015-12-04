@@ -32,7 +32,9 @@ namespace SistemaAlergiaAlimentar
         public frmMenu()
         {
             InitializeComponent();
-            if(testarConexao())
+            statusDataHora.Text = DateTime.Now.ToString();
+            timer1.Start();
+            if (testarConexao())
             {
                 InicializaCbUsuario();
             }
@@ -131,6 +133,16 @@ namespace SistemaAlergiaAlimentar
         private void cbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             btPesquisar.Enabled = true;
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            statusDataHora.Text = DateTime.Now.ToString();
         }
     }
 }
