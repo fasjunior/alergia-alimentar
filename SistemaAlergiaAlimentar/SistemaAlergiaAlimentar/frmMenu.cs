@@ -62,7 +62,6 @@ namespace SistemaAlergiaAlimentar
         {
             frmSobre sobreGUI = new frmSobre();
             sobreGUI.ShowDialog();
-            //InicializaCbUsuario();
         }
 
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
