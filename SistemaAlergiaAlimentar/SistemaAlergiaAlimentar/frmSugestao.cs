@@ -17,17 +17,23 @@ namespace SistemaAlergiaAlimentar
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void preencheDados(String categoria, String produto)
         {
-            Dados dados = new Dados();
-            if(dados.conectar())
-            {
-                MessageBox.Show("Conectou");
-            }
-            else
-            {
-                MessageBox.Show("Não Conectou");
-            }
+            txtCategoria.Text = categoria;
+            txtProduto.Text = produto;
+        }
+
+        private void btVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btPesquisar_Click(object sender, EventArgs e)
+        {
+
+
+
+            this.Close();
         }
     }
 }
