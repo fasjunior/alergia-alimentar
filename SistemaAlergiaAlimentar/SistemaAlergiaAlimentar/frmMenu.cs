@@ -32,22 +32,31 @@ namespace SistemaAlergiaAlimentar
         public frmMenu()
         {
             InitializeComponent();
-            InicializaCbUsuario();
-            testarConexao();
+            if(testarConexao())
+            {
+                InicializaCbUsuario();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao conectar o banco de dados!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                        
         }
 
-        public void testarConexao()
+        public bool testarConexao()
         {
             Dados dados = new Dados();
             if (dados.conectar())
             {
                 statusConexao.Text = "Conectado!";
-                statusConexao.Image = global::SistemaAlergiaAlimentar.Properties.Resources.OKIco; ;
+                statusConexao.Image = global::SistemaAlergiaAlimentar.Properties.Resources.OKIco;
+                return true;
             }
             else
             {
                 statusConexao.Text = "Desconectado!";
                 statusConexao.Image = global::SistemaAlergiaAlimentar.Properties.Resources.NoIco;
+                return false;
             }
         }
 

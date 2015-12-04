@@ -6,23 +6,25 @@ using System.Threading.Tasks;
 using System.Data;
 using Npgsql;
 using NpgsqlTypes;
+using System.Configuration;
 
 namespace SistemaAlergiaAlimentar
 {
     public class Dados
     {
         #region Conexão
-        static string serverdb = "localhost";
-        static string userdb = "postgres";
-        static string passdb = "postgres";
-        static string database = "bd_AlergiaAlimentar";
-        private string connectionString = "Server=" + serverdb + ";Port=5432;UserID=" + userdb + ";password=" + passdb + ";Database=" + database + ";";
         NpgsqlConnection conn = null;
         #endregion
 
         #region Conectar
         public bool conectar()
         {
+            string serverdb = ConfigurationManager.AppSettings["Servidor_Banco"].ToString();
+            string database = ConfigurationManager.AppSettings["Nome_Banco"].ToString();
+            string userdb = ConfigurationManager.AppSettings["Usuario_Banco"].ToString();
+            string passdb = ConfigurationManager.AppSettings["Senha_Banco"].ToString();
+            string connectionString = "Server=" + serverdb + ";Port=5432;UserID=" + userdb + ";password=" + passdb + ";Database=" + database + ";";
+
             conn = new NpgsqlConnection(connectionString);
             try
             {
