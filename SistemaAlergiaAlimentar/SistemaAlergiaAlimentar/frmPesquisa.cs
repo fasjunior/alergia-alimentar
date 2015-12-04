@@ -378,8 +378,6 @@ namespace SistemaAlergiaAlimentar
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            frmMenu menuGUI = new frmMenu();
-            menuGUI.Show();
             this.Hide();
         }
     }

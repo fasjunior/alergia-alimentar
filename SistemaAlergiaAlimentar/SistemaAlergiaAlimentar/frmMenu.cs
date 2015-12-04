@@ -53,7 +53,7 @@ namespace SistemaAlergiaAlimentar
         private void btCadastrar_Click(object sender, EventArgs e)
         {
             frmCadastro cadastroGUI = new frmCadastro();
-            cadastroGUI.Show();
+            cadastroGUI.ShowDialog();
             this.Hide();
         }
 
@@ -61,7 +61,6 @@ namespace SistemaAlergiaAlimentar
         {
             frmSobre sobreGUI = new frmSobre();
             sobreGUI.Show();
-            this.Hide();
         }
 
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -82,8 +81,7 @@ namespace SistemaAlergiaAlimentar
             frmPesquisa pesquisaGUI = new frmPesquisa();
             Item itemSelecionado = (Item)cbUsuario.SelectedItem;
             pesquisaGUI.PreencherUsuario(itemSelecionado.Value, itemSelecionado.Name);
-            pesquisaGUI.Show();
-            this.Hide();
+            pesquisaGUI.ShowDialog();
         }
         
 
