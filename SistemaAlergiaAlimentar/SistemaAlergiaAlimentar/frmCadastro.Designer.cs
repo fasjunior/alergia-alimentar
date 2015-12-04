@@ -50,6 +50,7 @@
             this.cbChocolate = new System.Windows.Forms.CheckBox();
             this.cbCastanha = new System.Windows.Forms.CheckBox();
             this.cbAmendoim = new System.Windows.Forms.CheckBox();
+            this.btVoltar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btVoltar);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.btSalvar);
             this.panel1.Controls.Add(this.groupBox1);
@@ -97,7 +99,7 @@
             // 
             // btSalvar
             // 
-            this.btSalvar.Location = new System.Drawing.Point(150, 219);
+            this.btSalvar.Location = new System.Drawing.Point(100, 218);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(88, 24);
             this.btSalvar.TabIndex = 4;
@@ -295,6 +297,16 @@
             this.cbAmendoim.Text = "Amendoim";
             this.cbAmendoim.UseVisualStyleBackColor = true;
             // 
+            // btVoltar
+            // 
+            this.btVoltar.Location = new System.Drawing.Point(194, 217);
+            this.btVoltar.Name = "btVoltar";
+            this.btVoltar.Size = new System.Drawing.Size(88, 24);
+            this.btVoltar.TabIndex = 5;
+            this.btVoltar.Text = "Voltar";
+            this.btVoltar.UseVisualStyleBackColor = true;
+            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
+            // 
             // frmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,5 +351,6 @@
         private System.Windows.Forms.CheckBox cbCastanha;
         private System.Windows.Forms.CheckBox cbAmendoim;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btVoltar;
     }
 }

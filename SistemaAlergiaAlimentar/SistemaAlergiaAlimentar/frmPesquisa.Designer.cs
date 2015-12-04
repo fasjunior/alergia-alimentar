@@ -64,6 +64,7 @@
             this.cbAmendoim = new System.Windows.Forms.CheckBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusAlergia = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btVoltar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -74,13 +75,14 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btVoltar);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.txtInformacao);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(386, 416);
+            this.panel1.Size = new System.Drawing.Size(386, 444);
             this.panel1.TabIndex = 1;
             // 
             // groupBox3
@@ -459,9 +461,9 @@
             this.statusStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusAlergia});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 459);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(413, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(410, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
@@ -472,16 +474,26 @@
             this.statusAlergia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusAlergia.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.statusAlergia.Name = "statusAlergia";
-            this.statusAlergia.Size = new System.Drawing.Size(398, 17);
+            this.statusAlergia.Size = new System.Drawing.Size(395, 17);
             this.statusAlergia.Spring = true;
             this.statusAlergia.Text = "Status";
             this.statusAlergia.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // btVoltar
+            // 
+            this.btVoltar.Location = new System.Drawing.Point(151, 414);
+            this.btVoltar.Name = "btVoltar";
+            this.btVoltar.Size = new System.Drawing.Size(88, 24);
+            this.btVoltar.TabIndex = 12;
+            this.btVoltar.Text = "Voltar";
+            this.btVoltar.UseVisualStyleBackColor = true;
+            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
             // 
             // frmPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 453);
+            this.ClientSize = new System.Drawing.Size(410, 481);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -542,5 +554,6 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btVoltar;
     }
 }

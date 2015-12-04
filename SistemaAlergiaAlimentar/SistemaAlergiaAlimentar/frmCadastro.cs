@@ -105,5 +105,10 @@ namespace SistemaAlergiaAlimentar
                 dados.cadastrar_usuario_substancia(txtNome.Text, cbTrigo.Text);
             }
         }
+
+        private void btVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -19,7 +19,8 @@ namespace SistemaAlergiaAlimentar
         public frmPesquisa()
         {
             InitializeComponent();
-            verificaEstabelecimentoNulo(); 
+            verificaEstabelecimentoNulo();
+            statusAlergia.Text = "";
         }
 
         #region SelecionarEmNegritoSubstancias
@@ -375,6 +376,11 @@ namespace SistemaAlergiaAlimentar
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void btVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
