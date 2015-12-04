@@ -34,7 +34,7 @@ namespace SistemaAlergiaAlimentar
         public frmPesquisa()
         {
             InitializeComponent();
-            verificaEstabelecimentoNulo();
+            verificarEstabelecimentoNulo();
             statusAlergia.Text = "";
         }
 
@@ -332,19 +332,25 @@ namespace SistemaAlergiaAlimentar
         #region PreencherUsuario
         public void PreencherUsuario(int idUsuario, string nmUsuario)
         {
-            txtUsuario.Text = nmUsuario.ToUpper();
+            txtUsuario.Text = nmUsuario;
             dados = new Dados();
             List<string> substancias = dados.ObterSubstanciasDoUsuario(idUsuario);
             SelecionarSubstancias(substancias);
         }
         #endregion
-
+        
+        #region imprimirStatus
         public void imprimirStatus(bool alergico)
         {
-            if (alergico==false)
+            if (alergico == false)
             {
                 statusAlergia.Text = "Não ingerir! Este alimento lhe causará alergia!";
                 statusAlergia.Image = global::SistemaAlergiaAlimentar.Properties.Resources.NoIco; ;
+                DialogResult qSimilares = MessageBox.Show("Deseja sugestão de produtos similares que não lhe causem alergia?", "Podemos sugerir outro produto?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(qSimilares == DialogResult.Yes)
+                {
+
+                }
             }
             else
             {
@@ -352,8 +358,10 @@ namespace SistemaAlergiaAlimentar
                 statusAlergia.Image = global::SistemaAlergiaAlimentar.Properties.Resources.OKIco;
             }
         }
+        #endregion
 
-        public void verificaEstabelecimentoNulo()
+        #region verficarEstabelecimentoNulo()
+        public void verificarEstabelecimentoNulo()
         {
             if (cbEstabelecimento.Text == null || cbEstabelecimento.Text == "")
             {
@@ -367,7 +375,9 @@ namespace SistemaAlergiaAlimentar
                 btEndereco.Enabled = true; //NÃO MEXER
             }
         }
+        #endregion
 
+     
         private void btEndereco_Click(object sender, EventArgs e)
         {
             frmEstabelecimento estabelecimentoGUI = new frmEstabelecimento();
@@ -391,7 +401,7 @@ namespace SistemaAlergiaAlimentar
             
             estabelecimentoGUI.ShowDialog();
         }
-
+ 
         private void btPesquisar_Click(object sender, EventArgs e)
         {
             if(txtCodigo.Text != null  && txtCodigo.Text != "   -   -   -    -")
@@ -419,7 +429,7 @@ namespace SistemaAlergiaAlimentar
                     txtProduto.Text = produto;
                     txtTipo.Text = categoria;
                     DataTable dtEstabelecimento = dados.ObterEstabelecimentoProduto(codBarras);
-                    if(dtEstabelecimento != null && dtEstabelecimento.Rows.Count > 0)
+                    if (dtEstabelecimento != null && dtEstabelecimento.Rows.Count > 0)
                     {
                         foreach (DataRow dr in dtEstabelecimento.Rows)
                         {
@@ -430,10 +440,7 @@ namespace SistemaAlergiaAlimentar
                         cbEstabelecimento.Enabled = true;
                         cbEstabelecimento.Text = " - Selecione um estabelecimento - ";
                     }
-                    
-                    
                     imprimirStatus(alergia);
-
                 }
                 else
                 {
