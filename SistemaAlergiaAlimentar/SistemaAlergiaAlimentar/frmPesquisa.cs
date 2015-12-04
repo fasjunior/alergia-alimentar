@@ -43,23 +43,59 @@ namespace SistemaAlergiaAlimentar
         {
             if(substancias != null)
             {
-                if (substancias.Contains("Lactose"))
+                if (substancias.Contains("Amendoim"))
                 {
-                    cbLactose.Font = new Font(cbLactose.Font, FontStyle.Bold);
+                    cbAmendoim.Font = new Font(cbAmendoim.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Castanha"))
+                {
+                    cbCastanha.Font = new Font(cbCastanha.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Chocolate"))
+                {
+                    cbChocolate.Font = new Font(cbChocolate.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Corantes"))
+                {
+                    cbCorantes.Font = new Font(cbCorantes.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Frutas Cítricas"))
+                {
+                    cbFrutasCitricas.Font = new Font(cbFrutasCitricas.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Frutos do Mar"))
+                {
+                    cbFrutosDoMar.Font = new Font(cbFrutosDoMar.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Gergelim"))
+                {
+                    cbGergelim.Font = new Font(cbGergelim.Font, FontStyle.Bold);
                 }
                 if (substancias.Contains("Glúten"))
                 {
                     cbGluten.Font = new Font(cbGluten.Font, FontStyle.Bold);
                 }
+                if (substancias.Contains("Lactose"))
+                {
+                    cbLactose.Font = new Font(cbLactose.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Nozes"))
+                {
+                    cbNozes.Font = new Font(cbNozes.Font, FontStyle.Bold);
+                }
                 if (substancias.Contains("Ovo"))
                 {
                     cbOvo.Font = new Font(cbOvo.Font, FontStyle.Bold);
                 }
-                if (substancias.Contains("Crustáceos"))
+                if (substancias.Contains("Peixe"))
                 {
-                    cbFrutosDoMar.Font = new Font(cbFrutosDoMar.Font, FontStyle.Bold);
+                    cbPeixe.Font = new Font(cbPeixe.Font, FontStyle.Bold);
                 }
-                if (substancias.Contains("Proteina de soja"))
+                if (substancias.Contains("Sementes"))
+                {
+                    cbSementes.Font = new Font(cbSementes.Font, FontStyle.Bold);
+                }
+                if (substancias.Contains("Soja"))
                 {
                     cbSoja.Font = new Font(cbSoja.Font, FontStyle.Bold);
                 }
@@ -77,96 +113,6 @@ namespace SistemaAlergiaAlimentar
             alergia = true;
             if (substancias != null)
             {
-                if (substancias.Contains("Lactose"))
-                {
-                    cbLactose.Checked = true;
-                    if(cbLactose.Font.Bold)
-                    {
-                        cbLactose.ForeColor = Color.Red;
-                        alergia = false;
-                    }
-                }
-                else
-                {
-                    cbLactose.Checked = false;
-                    cbLactose.ForeColor = Color.Black;
-                }
-
-                if (substancias.Contains("Glúten"))
-                {
-                    cbGluten.Checked = true;
-                    if (cbGluten.Font.Bold)
-                    {
-                        cbGluten.ForeColor = Color.Red;
-                        alergia = false;
-                    }
-                }
-                else
-                {
-                    cbGluten.Checked = false;
-                    cbGluten.ForeColor = Color.Black;
-                }
-
-                if (substancias.Contains("Ovo"))
-                {
-                    cbOvo.Checked = true;
-                    if (cbOvo.Font.Bold)
-                    {
-                        cbOvo.ForeColor = Color.Red;
-                        alergia = false;
-                    }
-                }
-                else
-                {
-                    cbOvo.Checked = false;
-                    cbOvo.ForeColor = Color.Black;
-                }
-
-                if (substancias.Contains("Crustáceos"))
-                {
-                    cbFrutosDoMar.Checked = true;
-                    if (cbFrutosDoMar.Font.Bold)
-                    {
-                        cbFrutosDoMar.ForeColor = Color.Red;
-                        alergia = false;
-                    }
-                }
-                else
-                {
-                    cbFrutosDoMar.Checked = false;
-                    cbFrutosDoMar.ForeColor = Color.Black;
-                }
-
-                if (substancias.Contains("Proteina de soja"))
-                {
-                    cbSoja.Checked = true;
-                    if (cbSoja.Font.Bold)
-                    {
-                        cbSoja.ForeColor = Color.Red;
-                        alergia = false;
-                    }
-                }
-                else
-                {
-                    cbSoja.Checked = false;
-                    cbSoja.ForeColor = Color.Black;
-                }
-
-                if (substancias.Contains("Trigo"))
-                {
-                    cbTrigo.Checked = true;
-                    if (cbTrigo.Font.Bold)
-                    {
-                        cbTrigo.ForeColor = Color.Red;
-                        alergia = false;
-                    }
-                }
-                else
-                {
-                    cbTrigo.Checked = false;
-                    cbTrigo.ForeColor = Color.Black;
-                }
-
                 if (substancias.Contains("Amendoim"))
                 {
                     cbAmendoim.Checked = true;
@@ -196,7 +142,6 @@ namespace SistemaAlergiaAlimentar
                     cbCastanha.Checked = false;
                     cbCastanha.ForeColor = Color.Black;
                 }
-
                 if (substancias.Contains("Chocolate"))
                 {
                     cbChocolate.Checked = true;
@@ -226,8 +171,7 @@ namespace SistemaAlergiaAlimentar
                     cbCorantes.Checked = false;
                     cbCorantes.ForeColor = Color.Black;
                 }
-
-                if (substancias.Contains("Frutas cítricas"))
+                if (substancias.Contains("Frutas Cítricas"))
                 {
                     cbFrutasCitricas.Checked = true;
                     if (cbFrutasCitricas.Font.Bold)
@@ -241,7 +185,20 @@ namespace SistemaAlergiaAlimentar
                     cbFrutasCitricas.Checked = false;
                     cbFrutasCitricas.ForeColor = Color.Black;
                 }
-
+                if (substancias.Contains("Frutos do Mar"))
+                {
+                    cbFrutosDoMar.Checked = true;
+                    if (cbFrutosDoMar.Font.Bold)
+                    {
+                        cbFrutosDoMar.ForeColor = Color.Red;
+                        alergia = false;
+                    }
+                }
+                else
+                {
+                    cbFrutosDoMar.Checked = false;
+                    cbFrutosDoMar.ForeColor = Color.Black;
+                }
                 if (substancias.Contains("Gergelim"))
                 {
                     cbGergelim.Checked = true;
@@ -256,7 +213,34 @@ namespace SistemaAlergiaAlimentar
                     cbGergelim.Checked = false;
                     cbGergelim.ForeColor = Color.Black;
                 }
-
+                if (substancias.Contains("Glúten"))
+                {
+                    cbGluten.Checked = true;
+                    if (cbGluten.Font.Bold)
+                    {
+                        cbGluten.ForeColor = Color.Red;
+                        alergia = false;
+                    }
+                }
+                else
+                {
+                    cbGluten.Checked = false;
+                    cbGluten.ForeColor = Color.Black;
+                }
+                if (substancias.Contains("Lactose"))
+                {
+                    cbLactose.Checked = true;
+                    if (cbLactose.Font.Bold)
+                    {
+                        cbLactose.ForeColor = Color.Red;
+                        alergia = false;
+                    }
+                }
+                else
+                {
+                    cbLactose.Checked = false;
+                    cbLactose.ForeColor = Color.Black;
+                }
                 if (substancias.Contains("Nozes"))
                 {
                     cbNozes.Checked = true;
@@ -271,7 +255,34 @@ namespace SistemaAlergiaAlimentar
                     cbNozes.Checked = false;
                     cbNozes.ForeColor = Color.Black;
                 }
-
+                if (substancias.Contains("Ovo"))
+                {
+                    cbOvo.Checked = true;
+                    if (cbOvo.Font.Bold)
+                    {
+                        cbOvo.ForeColor = Color.Red;
+                        alergia = false;
+                    }
+                }
+                else
+                {
+                    cbOvo.Checked = false;
+                    cbOvo.ForeColor = Color.Black;
+                }
+                if (substancias.Contains("Peixe"))
+                {
+                    cbPeixe.Checked = true;
+                    if (cbPeixe.Font.Bold)
+                    {
+                        cbPeixe.ForeColor = Color.Red;
+                        alergia = false;
+                    }
+                }
+                else
+                {
+                    cbPeixe.Checked = false;
+                    cbPeixe.ForeColor = Color.Black;
+                }
                 if (substancias.Contains("Sementes"))
                 {
                     cbSementes.Checked = true;
@@ -285,6 +296,34 @@ namespace SistemaAlergiaAlimentar
                 {
                     cbSementes.Checked = false;
                     cbSementes.ForeColor = Color.Black;
+                }
+                if (substancias.Contains("Soja"))
+                {
+                    cbSoja.Checked = true;
+                    if (cbSoja.Font.Bold)
+                    {
+                        cbSoja.ForeColor = Color.Red;
+                        alergia = false;
+                    }
+                }
+                else
+                {
+                    cbSoja.Checked = false;
+                    cbSoja.ForeColor = Color.Black;
+                }
+                if (substancias.Contains("Trigo"))
+                {
+                    cbTrigo.Checked = true;
+                    if (cbTrigo.Font.Bold)
+                    {
+                        cbTrigo.ForeColor = Color.Red;
+                        alergia = false;
+                    }
+                }
+                else
+                {
+                    cbTrigo.Checked = false;
+                    cbTrigo.ForeColor = Color.Black;
                 }
             }
         }
