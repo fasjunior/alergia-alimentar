@@ -5,16 +5,40 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaAlergiaAlimentar", "SistemaAlergiaAlimentar\SistemaAlergiaAlimentar.csproj", "{DEE71726-7EAA-4525-824E-27E72E7CAACC}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupSistemaAlergiaAlimentar", "SetupSistemaAlergiaAlimentar\SetupSistemaAlergiaAlimentar.vdproj", "{02354773-005C-4EBB-89AD-ACC480915690}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Debug|x64.Build.0 = Debug|Any CPU
+		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Debug|x86.Build.0 = Debug|Any CPU
 		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Release|x64.ActiveCfg = Release|x64
+		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Release|x64.Build.0 = Release|x64
+		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Release|x86.ActiveCfg = Release|x86
+		{DEE71726-7EAA-4525-824E-27E72E7CAACC}.Release|x86.Build.0 = Release|x86
+		{02354773-005C-4EBB-89AD-ACC480915690}.Debug|Any CPU.ActiveCfg = Debug
+		{02354773-005C-4EBB-89AD-ACC480915690}.Debug|x64.ActiveCfg = Debug
+		{02354773-005C-4EBB-89AD-ACC480915690}.Debug|x64.Build.0 = Debug
+		{02354773-005C-4EBB-89AD-ACC480915690}.Debug|x86.ActiveCfg = Debug
+		{02354773-005C-4EBB-89AD-ACC480915690}.Debug|x86.Build.0 = Debug
+		{02354773-005C-4EBB-89AD-ACC480915690}.Release|Any CPU.ActiveCfg = Release
+		{02354773-005C-4EBB-89AD-ACC480915690}.Release|x64.ActiveCfg = Release
+		{02354773-005C-4EBB-89AD-ACC480915690}.Release|x64.Build.0 = Release
+		{02354773-005C-4EBB-89AD-ACC480915690}.Release|x86.ActiveCfg = Release
+		{02354773-005C-4EBB-89AD-ACC480915690}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
