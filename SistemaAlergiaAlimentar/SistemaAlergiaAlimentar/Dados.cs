@@ -41,7 +41,7 @@ namespace SistemaAlergiaAlimentar
         #region Desconectar
         private bool desconectar()
         {
-            if(conn.State != ConnectionState.Closed)
+            if (conn.State != ConnectionState.Closed)
             {
                 conn.Close();
                 conn.Dispose();
@@ -76,7 +76,7 @@ namespace SistemaAlergiaAlimentar
                 {
                     throw ex;
                 }
-                
+
             }
             else
             {
@@ -104,7 +104,8 @@ namespace SistemaAlergiaAlimentar
         {
             if (this.conectar())
             {
-                try {
+                try
+                {
                     NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.substancia (nome) VALUES('" + substancia + "');", conn);
                     cmd.ExecuteNonQuery();
                 }
@@ -230,7 +231,7 @@ namespace SistemaAlergiaAlimentar
                 {
                     throw ex;
                 }
-                
+
             }
             else
             {
@@ -259,7 +260,7 @@ namespace SistemaAlergiaAlimentar
                 {
                     throw ex;
                 }
-             
+
             }
             else
             {
@@ -288,7 +289,7 @@ namespace SistemaAlergiaAlimentar
                 {
                     throw ex;
                 }
-                
+
             }
             else
             {
@@ -390,6 +391,37 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region ObterProdutosDaCategoria
+        public DataTable ObterProdutosDaCategoria(int idCategoria)
+        {
+            string sql = "SELECT cod_barras, nome FROM produto.produto WHERE id_categoria = :idCategoria;";
+            NpgsqlCommand objcmd = null;
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("idCategoria", NpgsqlDbType.Integer));
+                    objcmd.Parameters[0].Value = idCategoria;
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    desconectar();
+
+                    return dt;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
 
     }
 }

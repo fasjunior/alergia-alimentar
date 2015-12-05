@@ -112,6 +112,7 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(111, 19);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
@@ -151,6 +152,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(111, 45);
             this.txtCodigo.Mask = "000-000-000-0000-0";
             this.txtCodigo.Name = "txtCodigo";
@@ -172,6 +174,7 @@
             // 
             // cbEstabelecimento
             // 
+            this.cbEstabelecimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstabelecimento.FormattingEnabled = true;
             this.cbEstabelecimento.Location = new System.Drawing.Point(6, 20);
             this.cbEstabelecimento.Name = "cbEstabelecimento";
@@ -217,6 +220,7 @@
             // 
             // txtTipo
             // 
+            this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipo.Location = new System.Drawing.Point(57, 77);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.ReadOnly = true;
@@ -236,6 +240,7 @@
             // 
             // txtMarca
             // 
+            this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarca.Location = new System.Drawing.Point(57, 51);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.ReadOnly = true;
@@ -255,6 +260,7 @@
             // 
             // txtProduto
             // 
+            this.txtProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProduto.Location = new System.Drawing.Point(57, 25);
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.ReadOnly = true;

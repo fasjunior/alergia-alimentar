@@ -346,12 +346,6 @@ namespace SistemaAlergiaAlimentar
             {
                 statusAlergia.Text = "Não ingerir! Este alimento lhe causará alergia!";
                 statusAlergia.Image = global::SistemaAlergiaAlimentar.Properties.Resources.NoIco; ;
-                DialogResult qSimilares = MessageBox.Show("Deseja sugestão de produtos similares que não lhe causem alergia?", "Podemos sugerir outro produto?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if(qSimilares == DialogResult.Yes)
-                {
-                    frmSugestao sugestaoGUI = new frmSugestao();
-                    sugestaoGUI.ShowDialog();
-                }
             }
             else
             {
@@ -368,12 +362,12 @@ namespace SistemaAlergiaAlimentar
             {
                 cbEstabelecimento.Enabled = false;
                 cbEstabelecimento.Text = "Produto Indisponível!";
-                btEndereco.Enabled = false; //NÃO MEXER
+                btEndereco.Enabled = false;
             }
             else
             {
                 cbEstabelecimento.Enabled = true;
-                btEndereco.Enabled = true; //NÃO MEXER
+                btEndereco.Enabled = true;
             }
         }
         #endregion
@@ -430,6 +424,7 @@ namespace SistemaAlergiaAlimentar
                     txtProduto.Text = produto;
                     txtTipo.Text = categoria;
                     DataTable dtEstabelecimento = dados.ObterEstabelecimentoProduto(codBarras);
+                    DataTable dtProdutosCategoria = dados.ObterProdutosDaCategoria(idCategoria);
                     if (dtEstabelecimento != null && dtEstabelecimento.Rows.Count > 0)
                     {
                         foreach (DataRow dr in dtEstabelecimento.Rows)
@@ -442,6 +437,19 @@ namespace SistemaAlergiaAlimentar
                         cbEstabelecimento.Text = " - Selecione um estabelecimento - ";
                     }
                     imprimirStatus(alergia);
+                    if (alergia == false)
+                                            {
+                        DialogResult qSimilares = MessageBox.Show("Deseja sugestão de produtos similares que não lhe causem alergia?", "Podemos sugerir outro produto?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                                if (qSimilares == DialogResult.Yes)
+                                                    {
+                            frmSugestao sugestaoGUI = new frmSugestao();
+                            sugestaoGUI.preencheDados(categoria, produto);
+                            dtProdutosCategoria.PrimaryKey = new DataColumn[] { dtProdutosCategoria.Columns["cod_barras"] };
+                            dtProdutosCategoria.Rows.Remove(dtProdutosCategoria.Rows.Find(codBarras));
+                            sugestaoGUI.getDataTable(dtProdutosCategoria);
+                            sugestaoGUI.ShowDialog();
+                                                    }
+                                            }
                 }
                 else
                 {
