@@ -423,5 +423,34 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region ObterUsuario
+        public string ObterUsuario(int idUsuario)
+        {
+            string sql = "select nome from usuario.usuario where id_usuario = :idUsuario;";
+            NpgsqlCommand objcmd = null;
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("idUsuario", NpgsqlDbType.Integer));
+                    objcmd.Parameters[0].Value = idUsuario;
+                    string usuario = (string)objcmd.ExecuteScalar();
+                    desconectar();
+                    return usuario;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
     }
 }

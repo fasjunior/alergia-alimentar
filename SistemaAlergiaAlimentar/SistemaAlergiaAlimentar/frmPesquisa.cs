@@ -15,6 +15,8 @@ namespace SistemaAlergiaAlimentar
 
         Dados dados = null;
         bool alergia = true;
+        DataTable dtProdutosCategoria = null;
+        int idUsuario = 0;
 
         private class Item
         {
@@ -333,12 +335,71 @@ namespace SistemaAlergiaAlimentar
         public void PreencherUsuario(int idUsuario, string nmUsuario)
         {
             txtUsuario.Text = nmUsuario;
+            this.idUsuario = idUsuario;
             dados = new Dados();
             List<string> substancias = dados.ObterSubstanciasDoUsuario(idUsuario);
             SelecionarSubstancias(substancias);
         }
         #endregion
-        
+
+        #region PreencherUsuario
+        public void PreencherUsuario(int idUsuario, string nmUsuario, decimal codBarras)
+        {
+            txtUsuario.Text = nmUsuario;
+            this.idUsuario = idUsuario;
+            dados = new Dados();
+            List<string> substancias = dados.ObterSubstanciasDoUsuario(idUsuario);
+            SelecionarSubstancias(substancias);
+            PreencherProduto(codBarras);
+            txtCodigo.Text = codBarras.ToString();
+            txtCodigo.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
+            txtCodigo.Enabled = false;
+            btPesquisar.Enabled = false;
+        }
+        #endregion
+
+        #region PreencherProduto
+        private bool PreencherProduto(decimal codBarras)
+        {
+            DataTable dtProduto = dados.ObterProduto(codBarras);
+            btEndereco.Enabled = false;
+            cbEstabelecimento.Items.Clear();
+            if (dtProduto != null && dtProduto.Rows.Count > 0)
+            {
+                int idFabricante = Convert.ToInt32(dtProduto.Rows[0]["id_fabricante"]);
+                int idCategoria = Convert.ToInt32(dtProduto.Rows[0]["id_categoria"]);
+                string fabricante = dados.ObterFabricante(idFabricante);
+                string produto = dtProduto.Rows[0]["nome"].ToString();
+                string categoria = dados.ObterCategoria(idCategoria);
+                List<string> substancias = dados.ObterSubstanciasDoProduto(codBarras);
+                MarcarSubstanciasProduto(substancias);
+                txtMarca.Text = fabricante;
+                txtProduto.Text = produto;
+                txtTipo.Text = categoria;
+                DataTable dtEstabelecimento = dados.ObterEstabelecimentoProduto(codBarras);
+                dtProdutosCategoria = dados.ObterProdutosDaCategoria(idCategoria);
+                if (dtEstabelecimento != null && dtEstabelecimento.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dtEstabelecimento.Rows)
+                    {
+                        int id = Convert.ToInt32(dr["id_estabelecimento"]);
+                        string nome = dr["nome"].ToString();
+                        cbEstabelecimento.Items.Add(new Item(nome, id));
+                    }
+                    cbEstabelecimento.Enabled = true;
+                    cbEstabelecimento.Text = " - Selecione um estabelecimento - ";
+                }
+                imprimirStatus(alergia);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
         #region imprimirStatus
         public void imprimirStatus(bool alergico)
         {
@@ -408,53 +469,26 @@ namespace SistemaAlergiaAlimentar
                 
                 //colocando novamente a máscara do código de barras
                 txtCodigo.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
-                DataTable dtProduto = dados.ObterProduto(codBarras);
-                btEndereco.Enabled = false;
-                cbEstabelecimento.Items.Clear();
-                if (dtProduto != null && dtProduto.Rows.Count > 0)
+                if(PreencherProduto(codBarras))
                 {
-                    int idFabricante = Convert.ToInt32(dtProduto.Rows[0]["id_fabricante"]);
-                    int idCategoria = Convert.ToInt32(dtProduto.Rows[0]["id_categoria"]);
-                    string fabricante = dados.ObterFabricante(idFabricante);
-                    string produto = dtProduto.Rows[0]["nome"].ToString();
-                    string categoria = dados.ObterCategoria(idCategoria);
-                    List<string> substancias = dados.ObterSubstanciasDoProduto(codBarras);
-                    MarcarSubstanciasProduto(substancias);
-                    txtMarca.Text = fabricante;
-                    txtProduto.Text = produto;
-                    txtTipo.Text = categoria;
-                    DataTable dtEstabelecimento = dados.ObterEstabelecimentoProduto(codBarras);
-                    DataTable dtProdutosCategoria = dados.ObterProdutosDaCategoria(idCategoria);
-                    if (dtEstabelecimento != null && dtEstabelecimento.Rows.Count > 0)
-                    {
-                        foreach (DataRow dr in dtEstabelecimento.Rows)
-                        {
-                            int id = Convert.ToInt32(dr["id_estabelecimento"]);
-                            string nome = dr["nome"].ToString();
-                            cbEstabelecimento.Items.Add(new Item(nome, id));
-                        }
-                        cbEstabelecimento.Enabled = true;
-                        cbEstabelecimento.Text = " - Selecione um estabelecimento - ";
-                    }
-                    imprimirStatus(alergia);
                     if (alergia == false)
-                                            {
+                    {
                         DialogResult qSimilares = MessageBox.Show("Deseja sugestão de produtos similares que não lhe causem alergia?", "Podemos sugerir outro produto?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                                                if (qSimilares == DialogResult.Yes)
-                                                    {
+                        if (qSimilares == DialogResult.Yes)
+                        {
                             frmSugestao sugestaoGUI = new frmSugestao();
-                            sugestaoGUI.preencheDados(categoria, produto);
+                            sugestaoGUI.preencheDados(txtTipo.Text, txtProduto.Text, idUsuario);
                             dtProdutosCategoria.PrimaryKey = new DataColumn[] { dtProdutosCategoria.Columns["cod_barras"] };
                             dtProdutosCategoria.Rows.Remove(dtProdutosCategoria.Rows.Find(codBarras));
                             sugestaoGUI.getDataTable(dtProdutosCategoria);
                             sugestaoGUI.ShowDialog();
-                                                    }
-                                            }
+                        }
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Código de barras não encontrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                }          
             }
             else
             {
