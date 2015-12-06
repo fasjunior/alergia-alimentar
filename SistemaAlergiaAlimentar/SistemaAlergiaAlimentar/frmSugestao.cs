@@ -13,6 +13,8 @@ namespace SistemaAlergiaAlimentar
     public partial class frmSugestao : Form
     {
         int idUsuario = 0;
+        decimal codBarras;
+        public Boolean close;
         private class Item
         {
             public string Name;
@@ -34,20 +36,25 @@ namespace SistemaAlergiaAlimentar
             InitializeComponent();
         }
 
-        public void preencheDados(String categoria, String produto, int idUsuario)
+        public void preencheDados(String categoria, String produto, int idUsuario, decimal codBarras)
         {
             txtCategoria.Text = categoria;
             txtProduto.Text = produto;
             this.idUsuario = idUsuario;
+            this.codBarras = codBarras;
+        }
+
+        public void vereificarBotaoPesquisar()
+        {
+
         }
 
         public void getDataTable(DataTable dtProCat)
         {
             if(dtProCat != null && dtProCat.Rows.Count > 0)
             {
-                cbSugestao.Enabled = true;
                 cbSugestao.Text = " - Selecione um Produto - ";
-                btPesquisar.Enabled = true;
+                btPesquisar.Enabled = false;
                 dtProdutosCategoria = dtProCat;
                 foreach (DataRow dr in dtProdutosCategoria.Rows)
                 {
@@ -58,12 +65,10 @@ namespace SistemaAlergiaAlimentar
             }
             else
             {
+                btPesquisar.Enabled = false;
                 cbSugestao.Enabled = false;
                 cbSugestao.Text = "Nenhum Produto encontrado!";
-                btPesquisar.Enabled = false;
             }
-            
-
         }
 
         private void btVoltar_Click(object sender, EventArgs e)
@@ -78,15 +83,16 @@ namespace SistemaAlergiaAlimentar
             
             frmPesquisa pesquisaGUI = new frmPesquisa();
             Item itemSelecionado = (Item)cbSugestao.SelectedItem;
-
-            Console.Out.Write(cbSugestao.Items.Count);
-
             if (cbSugestao.Items.Count != 0)
             {
                 pesquisaGUI.PreencherUsuario(idUsuario, usuario, itemSelecionado.Value);
                 pesquisaGUI.ShowDialog();
             }
-            this.Close();
+        }
+
+        private void cbSugestao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btPesquisar.Enabled = true;
         }
     }
 }

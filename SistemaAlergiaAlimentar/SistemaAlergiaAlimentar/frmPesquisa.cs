@@ -477,9 +477,7 @@ namespace SistemaAlergiaAlimentar
                         if (qSimilares == DialogResult.Yes)
                         {
                             frmSugestao sugestaoGUI = new frmSugestao();
-                            sugestaoGUI.preencheDados(txtTipo.Text, txtProduto.Text, idUsuario);
-                            //dtProdutosCategoria.PrimaryKey = new DataColumn[] { dtProdutosCategoria.Columns["cod_barras"] };
-                            //dtProdutosCategoria.Rows.Remove(dtProdutosCategoria.Rows.Find(codBarras));
+                            sugestaoGUI.preencheDados(txtTipo.Text, txtProduto.Text, idUsuario, codBarras);
                             sugestaoGUI.getDataTable(dtProdutosCategoria);
                             sugestaoGUI.ShowDialog();
                         }
