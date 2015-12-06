@@ -423,6 +423,40 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region ObterProdutosDaCategoriaUsuario
+        public DataTable ObterProdutosDaCategoriaUsuario(int idCategoria, int idUsuario)
+        {
+            string sql = "select p.cod_barras, p.nome from produto.produto as p join produto.produto_substancia as ps on p.cod_barras = ps.cod_barras where id_categoria = :idCategoria and ps.id_substancia not in (select id_substancia from usuario.usuario_substancia where id_usuario = :idUsuario);";
+            NpgsqlCommand objcmd = null;
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("idCategoria", NpgsqlDbType.Integer));
+                    objcmd.Parameters.Add(new NpgsqlParameter("idUsuario", NpgsqlDbType.Integer));
+                    objcmd.Parameters[0].Value = idCategoria;
+                    objcmd.Parameters[1].Value = idUsuario;
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    desconectar();
+
+                    return dt;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
         #region ObterUsuario
         public string ObterUsuario(int idUsuario)
         {

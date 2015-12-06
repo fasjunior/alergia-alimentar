@@ -377,7 +377,7 @@ namespace SistemaAlergiaAlimentar
                 txtProduto.Text = produto;
                 txtTipo.Text = categoria;
                 DataTable dtEstabelecimento = dados.ObterEstabelecimentoProduto(codBarras);
-                dtProdutosCategoria = dados.ObterProdutosDaCategoria(idCategoria);
+                dtProdutosCategoria = dados.ObterProdutosDaCategoriaUsuario(idCategoria, idUsuario);
                 if (dtEstabelecimento != null && dtEstabelecimento.Rows.Count > 0)
                 {
                     foreach (DataRow dr in dtEstabelecimento.Rows)
@@ -478,8 +478,8 @@ namespace SistemaAlergiaAlimentar
                         {
                             frmSugestao sugestaoGUI = new frmSugestao();
                             sugestaoGUI.preencheDados(txtTipo.Text, txtProduto.Text, idUsuario);
-                            dtProdutosCategoria.PrimaryKey = new DataColumn[] { dtProdutosCategoria.Columns["cod_barras"] };
-                            dtProdutosCategoria.Rows.Remove(dtProdutosCategoria.Rows.Find(codBarras));
+                            //dtProdutosCategoria.PrimaryKey = new DataColumn[] { dtProdutosCategoria.Columns["cod_barras"] };
+                            //dtProdutosCategoria.Rows.Remove(dtProdutosCategoria.Rows.Find(codBarras));
                             sugestaoGUI.getDataTable(dtProdutosCategoria);
                             sugestaoGUI.ShowDialog();
                         }
