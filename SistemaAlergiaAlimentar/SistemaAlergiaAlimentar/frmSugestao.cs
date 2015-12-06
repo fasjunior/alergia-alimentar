@@ -47,20 +47,20 @@ namespace SistemaAlergiaAlimentar
             {
                 cbSugestao.Enabled = true;
                 cbSugestao.Text = " - Selecione um Produto - ";
+                btPesquisar.Enabled = true;
                 dtProdutosCategoria = dtProCat;
                 foreach (DataRow dr in dtProdutosCategoria.Rows)
                 {
-                    // Console.WriteLine(dr["nome"]);
                     decimal cod_barras = Convert.ToDecimal(dr["cod_barras"]);
                     string nome = dr["nome"].ToString();
                     cbSugestao.Items.Add(new Item(nome, cod_barras));
-                    //preencheComboBox(dr["nome"]);
                 }
             }
             else
             {
                 cbSugestao.Enabled = false;
                 cbSugestao.Text = "Nenhum Produto encontrado!";
+                btPesquisar.Enabled = false;
             }
             
 
@@ -78,18 +78,15 @@ namespace SistemaAlergiaAlimentar
             
             frmPesquisa pesquisaGUI = new frmPesquisa();
             Item itemSelecionado = (Item)cbSugestao.SelectedItem;
-            pesquisaGUI.PreencherUsuario(idUsuario, usuario, itemSelecionado.Value);
-            pesquisaGUI.ShowDialog();
+
+            Console.Out.Write(cbSugestao.Items.Count);
+
+            if (cbSugestao.Items.Count != 0)
+            {
+                pesquisaGUI.PreencherUsuario(idUsuario, usuario, itemSelecionado.Value);
+                pesquisaGUI.ShowDialog();
+            }
             this.Close();
         }
-
-        public void preencheComboBox(Object objeto)
-        {
-            cbSugestao.Items.Add(objeto);
-        }
-
-
-
-
     }
 }
