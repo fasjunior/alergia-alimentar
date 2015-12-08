@@ -144,5 +144,11 @@ namespace SistemaAlergiaAlimentar
         {
             statusDataHora.Text = DateTime.Now.ToString();
         }
+
+        private void cadastrarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroProduto cadastroProdutoGUI = new frmCadastroProduto();
+            cadastroProdutoGUI.ShowDialog();
+        }
     }
 }

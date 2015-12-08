@@ -55,36 +55,6 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
-        #region ObterTodosUsuarios
-        public DataTable ObterTodosUsuarios()
-        {
-            string sql = "SELECT id_usuario, nome FROM usuario.usuario";
-            NpgsqlCommand objcmd = null;
-
-            if (this.conectar())
-            {
-                try
-                {
-                    objcmd = new NpgsqlCommand(sql, conn);
-                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
-                    desconectar();
-                    return dt;
-                }
-                catch (NpgsqlException ex)
-                {
-                    throw ex;
-                }
-
-            }
-            else
-            {
-                return null;
-            }
-        }
-        #endregion
-
         #region Cadastrar_Usuario
         public void cadastrar_usuario(string usuario)
         {
@@ -93,6 +63,45 @@ namespace SistemaAlergiaAlimentar
                 NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO usuario.usuario (nome) VALUES('" + usuario + "')", conn);
                 cmd.ExecuteNonQuery();
 
+                desconectar();
+            }
+
+        }
+        #endregion
+
+        #region Cadastrar_Categoria
+        public void cadastrar_Categoria(string categoria)
+        { 
+            if (this.conectar())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.categoria (nome) VALUES('" + categoria + "')", conn);
+                cmd.ExecuteNonQuery();
+                desconectar();
+            }
+
+        }
+        #endregion
+
+        #region Cadastrar_Fabricante
+        public void cadastrar_Fabricante(string fabricante)
+        {
+            if (this.conectar())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.fabricante (nome) VALUES('" + fabricante + "')", conn);
+                cmd.ExecuteNonQuery();
+                desconectar();
+            }
+
+        }
+        #endregion
+
+        #region Cadastrar_Produto
+        public void cadastrar_Produto(decimal codBarras, string fabricante, string categoria, string nome)
+        { 
+            if (this.conectar())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.produto (cod_barras, id_fabricante, id_categoria, nome) VALUES('" + codBarras + "', (select id_fabricante from produto.fabricante where nome like '" + fabricante + "'), (select id_categoria from produto.categoria where nome like '" + categoria + "'), '" + nome + "')", conn);
+                cmd.ExecuteNonQuery();
                 desconectar();
             }
 
@@ -124,6 +133,19 @@ namespace SistemaAlergiaAlimentar
             if (this.conectar())
             {
                 NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO usuario.usuario_substancia (id_usuario, id_substancia) VALUES((select id_usuario from usuario.usuario where nome like '" + usuario + "'), (select id_substancia from produto.substancia where nome like '" + substancia + "'));", conn);
+                cmd.ExecuteNonQuery();
+
+                desconectar();
+            }
+        }
+        #endregion
+
+        #region Cadastrar_produto_Substancia
+        public void cadastrar_produto_substancia(decimal codBarras, string substancia)
+        {
+            if (this.conectar())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.produto_substancia (cod_barras, id_substancia) VALUES('" + codBarras + "', (select id_substancia from produto.substancia where nome like '" + substancia + "'));", conn);
                 cmd.ExecuteNonQuery();
 
                 desconectar();
@@ -195,6 +217,35 @@ namespace SistemaAlergiaAlimentar
                     desconectar();
 
                     return substancias;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region ObterUsuario
+        public string ObterUsuario(int idUsuario)
+        {
+            string sql = "select nome from usuario.usuario where id_usuario = :idUsuario;";
+            NpgsqlCommand objcmd = null;
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    objcmd.Parameters.Add(new NpgsqlParameter("idUsuario", NpgsqlDbType.Integer));
+                    objcmd.Parameters[0].Value = idUsuario;
+                    string usuario = (string)objcmd.ExecuteScalar();
+                    desconectar();
+                    return usuario;
                 }
                 catch (NpgsqlException ex)
                 {
@@ -457,21 +508,112 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
-        #region ObterUsuario
-        public string ObterUsuario(int idUsuario)
+        #region ObterTodosUsuarios
+        public DataTable ObterTodosUsuarios()
         {
-            string sql = "select nome from usuario.usuario where id_usuario = :idUsuario;";
+            string sql = "SELECT id_usuario, nome FROM usuario.usuario";
             NpgsqlCommand objcmd = null;
+
             if (this.conectar())
             {
                 try
                 {
                     objcmd = new NpgsqlCommand(sql, conn);
-                    objcmd.Parameters.Add(new NpgsqlParameter("idUsuario", NpgsqlDbType.Integer));
-                    objcmd.Parameters[0].Value = idUsuario;
-                    string usuario = (string)objcmd.ExecuteScalar();
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
                     desconectar();
-                    return usuario;
+                    return dt;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region ObterTodasCategorias
+        public DataTable ObterTodasCategorias()
+        {
+            string sql = "SELECT id_categoria, nome FROM produto.categoria";
+            NpgsqlCommand objcmd = null;
+
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    desconectar();
+                    return dt;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region ObterTodosFabricantes
+        public DataTable ObterTodosFabricantes()
+        {
+            string sql = "SELECT id_fabricante, nome FROM produto.fabricante";
+            NpgsqlCommand objcmd = null;
+
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    desconectar();
+                    return dt;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region ObterTodosProdutos
+        public DataTable ObterTodosProdutos()
+        {
+            string sql = "SELECT cod_barras, nome, id_fabricante FROM produto.produto";
+            NpgsqlCommand objcmd = null;
+
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    desconectar();
+                    return dt;
                 }
                 catch (NpgsqlException ex)
                 {
