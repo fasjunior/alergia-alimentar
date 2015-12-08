@@ -35,16 +35,19 @@
             this.btPesquisar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuArquivo = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadstroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAjuda = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemSobre = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.statusDataHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusConexao = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.statusDataHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.itemSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarEstabelecimentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemSobre = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,8 +87,10 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuArquivo,
+            this.cadstroToolStripMenuItem,
             this.menuAjuda});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -96,19 +101,20 @@
             // menuArquivo
             // 
             this.menuArquivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrarProdutoToolStripMenuItem,
             this.itemSair});
             this.menuArquivo.Name = "menuArquivo";
             this.menuArquivo.Size = new System.Drawing.Size(61, 20);
             this.menuArquivo.Text = "Arquivo";
             // 
-            // itemSair
+            // cadstroToolStripMenuItem
             // 
-            this.itemSair.Image = global::SistemaAlergiaAlimentar.Properties.Resources.ExitIco;
-            this.itemSair.Name = "itemSair";
-            this.itemSair.Size = new System.Drawing.Size(170, 22);
-            this.itemSair.Text = "Sair";
-            this.itemSair.Click += new System.EventHandler(this.itemSair_Click);
+            this.cadstroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarUsuárioToolStripMenuItem,
+            this.cadastrarProdutoToolStripMenuItem,
+            this.cadastrarEstabelecimentoToolStripMenuItem});
+            this.cadstroToolStripMenuItem.Name = "cadstroToolStripMenuItem";
+            this.cadstroToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.cadstroToolStripMenuItem.Text = "Cadastro";
             // 
             // menuAjuda
             // 
@@ -118,17 +124,10 @@
             this.menuAjuda.Size = new System.Drawing.Size(50, 20);
             this.menuAjuda.Text = "Ajuda";
             // 
-            // itemSobre
-            // 
-            this.itemSobre.Image = global::SistemaAlergiaAlimentar.Properties.Resources.AboutIco;
-            this.itemSobre.Name = "itemSobre";
-            this.itemSobre.Size = new System.Drawing.Size(152, 22);
-            this.itemSobre.Text = "Sobre";
-            this.itemSobre.Click += new System.EventHandler(this.itemSobre_Click);
-            // 
             // statusStrip
             // 
             this.statusStrip.AutoSize = false;
+            this.statusStrip.BackColor = System.Drawing.SystemColors.ControlDark;
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusDataHora,
             this.statusConexao});
@@ -139,16 +138,9 @@
             this.statusStrip.TabIndex = 6;
             this.statusStrip.Text = "statusStrip1";
             // 
-            // statusDataHora
-            // 
-            this.statusDataHora.Image = global::SistemaAlergiaAlimentar.Properties.Resources.DataIco;
-            this.statusDataHora.Name = "statusDataHora";
-            this.statusDataHora.Size = new System.Drawing.Size(84, 17);
-            this.statusDataHora.Text = "Data / Hora";
-            this.statusDataHora.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // statusConexao
             // 
+            this.statusConexao.BackColor = System.Drawing.SystemColors.Control;
             this.statusConexao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusConexao.Name = "statusConexao";
             this.statusConexao.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -187,12 +179,53 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // statusDataHora
+            // 
+            this.statusDataHora.Image = global::SistemaAlergiaAlimentar.Properties.Resources.DataIco;
+            this.statusDataHora.Name = "statusDataHora";
+            this.statusDataHora.Size = new System.Drawing.Size(84, 17);
+            this.statusDataHora.Text = "Data / Hora";
+            this.statusDataHora.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // itemSair
+            // 
+            this.itemSair.Image = global::SistemaAlergiaAlimentar.Properties.Resources.ExitIco;
+            this.itemSair.Name = "itemSair";
+            this.itemSair.Size = new System.Drawing.Size(93, 22);
+            this.itemSair.Text = "Sair";
+            this.itemSair.Click += new System.EventHandler(this.itemSair_Click);
+            // 
+            // cadastrarUsuárioToolStripMenuItem
+            // 
+            this.cadastrarUsuárioToolStripMenuItem.Image = global::SistemaAlergiaAlimentar.Properties.Resources.AddPersonIco;
+            this.cadastrarUsuárioToolStripMenuItem.Name = "cadastrarUsuárioToolStripMenuItem";
+            this.cadastrarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.cadastrarUsuárioToolStripMenuItem.Text = "Cadastrar Usuário";
+            this.cadastrarUsuárioToolStripMenuItem.Click += new System.EventHandler(this.cadastrarUsuárioToolStripMenuItem_Click);
+            // 
             // cadastrarProdutoToolStripMenuItem
             // 
+            this.cadastrarProdutoToolStripMenuItem.Image = global::SistemaAlergiaAlimentar.Properties.Resources.AddIco;
             this.cadastrarProdutoToolStripMenuItem.Name = "cadastrarProdutoToolStripMenuItem";
-            this.cadastrarProdutoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.cadastrarProdutoToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.cadastrarProdutoToolStripMenuItem.Text = "Cadastrar Produto";
-            this.cadastrarProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarProdutoToolStripMenuItem_Click);
+            this.cadastrarProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarProdutoToolStripMenuItem_Click_1);
+            // 
+            // cadastrarEstabelecimentoToolStripMenuItem
+            // 
+            this.cadastrarEstabelecimentoToolStripMenuItem.Image = global::SistemaAlergiaAlimentar.Properties.Resources.SellIco;
+            this.cadastrarEstabelecimentoToolStripMenuItem.Name = "cadastrarEstabelecimentoToolStripMenuItem";
+            this.cadastrarEstabelecimentoToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.cadastrarEstabelecimentoToolStripMenuItem.Text = "Cadastrar Estabelecimento";
+            this.cadastrarEstabelecimentoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarEstabelecimentoToolStripMenuItem_Click);
+            // 
+            // itemSobre
+            // 
+            this.itemSobre.Image = global::SistemaAlergiaAlimentar.Properties.Resources.AboutIco;
+            this.itemSobre.Name = "itemSobre";
+            this.itemSobre.Size = new System.Drawing.Size(104, 22);
+            this.itemSobre.Text = "Sobre";
+            this.itemSobre.Click += new System.EventHandler(this.itemSobre_Click);
             // 
             // frmMenu
             // 
@@ -237,6 +270,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripStatusLabel statusDataHora;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem cadstroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarProdutoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarEstabelecimentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarUsuárioToolStripMenuItem;
     }
 }

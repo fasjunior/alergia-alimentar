@@ -72,7 +72,7 @@ namespace SistemaAlergiaAlimentar
                 }
                 if (cadastro == true)
                 {
-                    dados.cadastrar_Produto(txtCodBarras, cadastrarFabricante(), cadastrarCategoria(), txtNome.Text);
+                    dados.cadastrar_produto(txtCodBarras, cadastrarFabricante(), cadastrarCategoria(), txtNome.Text);
                     cadastrarSubstancias(txtCodBarras);
                 }
                 else
@@ -99,7 +99,7 @@ namespace SistemaAlergiaAlimentar
         #endregion
 
         #region cadastrarCategoria
-        public String cadastrarCategoria()
+        private string cadastrarCategoria()
         {
             Dados dados = new Dados();
             DataTable dtCategorias = new DataTable();
@@ -116,14 +116,14 @@ namespace SistemaAlergiaAlimentar
             }
             if (cadastro == true)
             {
-                    dados.cadastrar_Categoria(cbCategoria.Text);
+                    dados.cadastrar_categoria(cbCategoria.Text);
             }
             return cbCategoria.Text; ;
         }
         #endregion
 
         #region cadastrarFabricante
-        public String cadastrarFabricante()
+        private string cadastrarFabricante()
         {
             Dados dados = new Dados();
             DataTable dtFabricantes = new DataTable();
@@ -140,14 +140,14 @@ namespace SistemaAlergiaAlimentar
             }
             if (cadastro == true)
             {
-                    dados.cadastrar_Fabricante(cbFabricante.Text);
+                    dados.cadastrar_fabricante(cbFabricante.Text);
             }
             return cbFabricante.Text;
         }
         #endregion
 
         #region cadastrarSubstancias
-        public void cadastrarSubstancias(decimal codBarras)
+        private void cadastrarSubstancias(decimal codBarras)
         {
             Dados dados = new Dados();
             if (cbAmendoim.Checked)
@@ -214,7 +214,7 @@ namespace SistemaAlergiaAlimentar
         #endregion
 
         #region preencherCategoria
-        public void preencheCategoria()
+        private void preencheCategoria()
         {
             cbCategoria.Text = " - Digite para adicionar ou selecione - ";
             Dados dados = new Dados();
@@ -233,7 +233,7 @@ namespace SistemaAlergiaAlimentar
         #endregion
 
         #region preencherFabricante
-        public void preencheFabricante()
+        private void preencheFabricante()
         {
             cbFabricante.Text = " - Digite para adicionar ou selecione - ";
             Dados dados = new Dados();
@@ -250,9 +250,6 @@ namespace SistemaAlergiaAlimentar
 
         }
         #endregion
-
-
-
 
         private void btSalvar_Click(object sender, EventArgs e)
         {

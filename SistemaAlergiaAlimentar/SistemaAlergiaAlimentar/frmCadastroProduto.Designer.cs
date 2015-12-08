@@ -32,6 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btVoltar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCodigo = new System.Windows.Forms.MaskedTextBox();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
+            this.cbFabricante = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,9 +57,6 @@
             this.cbChocolate = new System.Windows.Forms.CheckBox();
             this.cbCastanha = new System.Windows.Forms.CheckBox();
             this.cbAmendoim = new System.Windows.Forms.CheckBox();
-            this.cbFabricante = new System.Windows.Forms.ComboBox();
-            this.cbCategoria = new System.Windows.Forms.ComboBox();
-            this.txtCodigo = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -101,6 +101,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações:";
             // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(103, 45);
+            this.txtCodigo.Mask = "000-000-000-0000-0";
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(248, 20);
+            this.txtCodigo.TabIndex = 11;
+            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbCategoria
+            // 
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(103, 98);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(248, 21);
+            this.cbCategoria.TabIndex = 10;
+            // 
+            // cbFabricante
+            // 
+            this.cbFabricante.FormattingEnabled = true;
+            this.cbFabricante.Location = new System.Drawing.Point(103, 71);
+            this.cbFabricante.Name = "cbFabricante";
+            this.cbFabricante.Size = new System.Drawing.Size(248, 21);
+            this.cbFabricante.TabIndex = 9;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -138,6 +164,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(248, 20);
             this.txtNome.TabIndex = 2;
+            this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -349,38 +376,13 @@
             this.cbAmendoim.Text = "Amendoim";
             this.cbAmendoim.UseVisualStyleBackColor = true;
             // 
-            // cbFabricante
-            // 
-            this.cbFabricante.FormattingEnabled = true;
-            this.cbFabricante.Location = new System.Drawing.Point(103, 71);
-            this.cbFabricante.Name = "cbFabricante";
-            this.cbFabricante.Size = new System.Drawing.Size(248, 21);
-            this.cbFabricante.TabIndex = 9;
-            // 
-            // cbCategoria
-            // 
-            this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(103, 98);
-            this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(248, 21);
-            this.cbCategoria.TabIndex = 10;
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(103, 45);
-            this.txtCodigo.Mask = "000-000-000-0000-0";
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(248, 20);
-            this.txtCodigo.TabIndex = 11;
-            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // frmCadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 352);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmCadastroProduto";

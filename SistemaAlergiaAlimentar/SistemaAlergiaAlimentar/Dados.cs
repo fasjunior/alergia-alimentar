@@ -70,7 +70,7 @@ namespace SistemaAlergiaAlimentar
         #endregion
 
         #region Cadastrar_Categoria
-        public void cadastrar_Categoria(string categoria)
+        public void cadastrar_categoria(string categoria)
         { 
             if (this.conectar())
             {
@@ -82,8 +82,34 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region Cadastrar_Endereco
+        public void cadastrar_endereco(int cep, string endereco, int numero, string estado, string cidade, string bairro)
+        {
+            if (this.conectar())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO estabelecimento.endereco (cep, endereco, numero, estado, cidade, bairro) VALUES('" + cep + "','" + endereco + "','" + numero + "','" + estado + "','" + cidade + "','" + bairro + "');", conn);
+                cmd.ExecuteNonQuery();
+                desconectar();
+            }
+
+        }
+        #endregion
+
+        #region Cadastrar_Estabelecimento
+        public void cadastrar_estabelecimento(string endereco, int cep, int numero, string nome)
+        {
+            if (this.conectar())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO estabelecimento.estabelecimento(id_endereco, nome) VALUES((select id_endereco from estabelecimento.endereco where cep = '" + cep + "' and endereco = '" + endereco + "' and numero = '" + numero + "'),'" + nome + "');", conn);
+                cmd.ExecuteNonQuery();
+                desconectar();
+            }
+
+        }
+        #endregion
+
         #region Cadastrar_Fabricante
-        public void cadastrar_Fabricante(string fabricante)
+        public void cadastrar_fabricante(string fabricante)
         {
             if (this.conectar())
             {
@@ -96,7 +122,7 @@ namespace SistemaAlergiaAlimentar
         #endregion
 
         #region Cadastrar_Produto
-        public void cadastrar_Produto(decimal codBarras, string fabricante, string categoria, string nome)
+        public void cadastrar_produto(decimal codBarras, string fabricante, string categoria, string nome)
         { 
             if (this.conectar())
             {
@@ -140,12 +166,25 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
-        #region Cadastrar_produto_Substancia
+        #region Cadastrar_Produto_Substancia
         public void cadastrar_produto_substancia(decimal codBarras, string substancia)
         {
             if (this.conectar())
             {
                 NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.produto_substancia (cod_barras, id_substancia) VALUES('" + codBarras + "', (select id_substancia from produto.substancia where nome like '" + substancia + "'));", conn);
+                cmd.ExecuteNonQuery();
+
+                desconectar();
+            }
+        }
+        #endregion
+
+        #region Cadastrar_Produto_Estabelecimento
+        public void cadastrar_produto_estabelecimento(String nome, decimal codBarras)
+        {
+            if (this.conectar())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO estabelecimento.estabelecimento_produto (id_estabelecimento, cod_barras) VALUES((select id_estabelecimento from estabelecimento.estabelecimento where nome like '" + nome + "'), '" + codBarras + "');", conn);
                 cmd.ExecuteNonQuery();
 
                 desconectar();

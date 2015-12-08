@@ -145,10 +145,24 @@ namespace SistemaAlergiaAlimentar
             statusDataHora.Text = DateTime.Now.ToString();
         }
 
-        private void cadastrarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void cadastrarEstabelecimentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroEstabelecimento cadastroEstabelecimentoGUI = new frmCadastroEstabelecimento();
+            cadastroEstabelecimentoGUI.ShowDialog();
+        }
+
+        private void cadastrarProdutoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmCadastroProduto cadastroProdutoGUI = new frmCadastroProduto();
             cadastroProdutoGUI.ShowDialog();
+        }
+
+        private void cadastrarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastro cadastroGUI = new frmCadastro();
+            cadastroGUI.ShowDialog();
+            AtualizarCbUsario();
         }
     }
 }

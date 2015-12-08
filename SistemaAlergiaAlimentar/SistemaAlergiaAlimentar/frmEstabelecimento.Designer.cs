@@ -60,17 +60,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(239, 102);
+            this.label2.Location = new System.Drawing.Point(331, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(24, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Estado:";
+            this.label2.Text = "UF:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 103);
+            this.label3.Location = new System.Drawing.Point(26, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 9;
@@ -119,12 +119,13 @@
             // txtUF
             // 
             this.txtUF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUF.Location = new System.Drawing.Point(290, 99);
+            this.txtUF.Location = new System.Drawing.Point(361, 100);
             this.txtUF.Mask = ">LL";
             this.txtUF.Name = "txtUF";
             this.txtUF.ReadOnly = true;
-            this.txtUF.Size = new System.Drawing.Size(96, 20);
+            this.txtUF.Size = new System.Drawing.Size(25, 20);
             this.txtUF.TabIndex = 16;
+            this.txtUF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNumero
             // 
@@ -135,6 +136,7 @@
             this.txtNumero.ReadOnly = true;
             this.txtNumero.Size = new System.Drawing.Size(54, 20);
             this.txtNumero.TabIndex = 17;
+            this.txtNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNome
             // 
@@ -144,6 +146,7 @@
             this.txtNome.ReadOnly = true;
             this.txtNome.Size = new System.Drawing.Size(311, 20);
             this.txtNome.TabIndex = 22;
+            this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCEP
             // 
@@ -154,15 +157,17 @@
             this.txtCEP.ReadOnly = true;
             this.txtCEP.Size = new System.Drawing.Size(62, 20);
             this.txtCEP.TabIndex = 21;
+            this.txtCEP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCidade
             // 
             this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCidade.Location = new System.Drawing.Point(75, 99);
+            this.txtCidade.Location = new System.Drawing.Point(75, 100);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.ReadOnly = true;
-            this.txtCidade.Size = new System.Drawing.Size(158, 20);
+            this.txtCidade.Size = new System.Drawing.Size(250, 20);
             this.txtCidade.TabIndex = 20;
+            this.txtCidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBairro
             // 
@@ -172,6 +177,7 @@
             this.txtBairro.ReadOnly = true;
             this.txtBairro.Size = new System.Drawing.Size(100, 20);
             this.txtBairro.TabIndex = 19;
+            this.txtBairro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtEndereco
             // 
@@ -181,6 +187,7 @@
             this.txtEndereco.ReadOnly = true;
             this.txtEndereco.Size = new System.Drawing.Size(311, 20);
             this.txtEndereco.TabIndex = 18;
+            this.txtEndereco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox1
             // 
