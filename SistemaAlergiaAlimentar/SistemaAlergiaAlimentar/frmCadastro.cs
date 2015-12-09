@@ -21,9 +21,25 @@ namespace SistemaAlergiaAlimentar
         private void btSalvar_Click(object sender, EventArgs e)
         {
             dados = new Dados();
-            dados.cadastrar_usuario(txtNome.Text);
-            cadastrar_subst_usuario();
-            this.Close();
+            if(txtNome.Text.Trim().Length > 0)
+            {
+                if (!dados.cadastrar_usuario(txtNome.Text))
+                {
+                    MessageBox.Show("Erro ao cadastrar o Usuário!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    cadastrar_subst_usuario();
+                    MessageBox.Show("Usuário cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Digite um nome válido!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+            
         }
 
         public void cadastrar_subst_usuario()

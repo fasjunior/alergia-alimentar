@@ -56,27 +56,54 @@ namespace SistemaAlergiaAlimentar
         #endregion
 
         #region Cadastrar_Usuario
-        public void cadastrar_usuario(string usuario)
+        public bool cadastrar_usuario(string usuario)
         {
             if (this.conectar())
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO usuario.usuario (nome) VALUES('" + usuario + "')", conn);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO usuario.usuario (nome) VALUES('" + usuario + "')", conn);
+                    cmd.ExecuteNonQuery();
 
-                desconectar();
+                    desconectar();
+                    return true;
+                }
+                catch
+                {
+                    desconectar();
+                    return false;
+                }
+                
+            }
+            else
+            {
+                return false;
             }
 
         }
         #endregion
 
         #region Cadastrar_Categoria
-        public void cadastrar_categoria(string categoria)
+        public bool cadastrar_categoria(string categoria)
         { 
             if (this.conectar())
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.categoria (nome) VALUES('" + categoria + "')", conn);
-                cmd.ExecuteNonQuery();
-                desconectar();
+                try
+                {
+                    NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO produto.categoria (nome) VALUES('" + categoria + "')", conn);
+                    cmd.ExecuteNonQuery();
+                    desconectar();
+                    return true;
+                }
+                catch
+                {
+                    desconectar();
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
 
         }
@@ -154,14 +181,26 @@ namespace SistemaAlergiaAlimentar
         #endregion
 
         #region Cadastrar_Usuario_Substancia
-        public void cadastrar_usuario_substancia(string usuario, string substancia)
+        public bool cadastrar_usuario_substancia(string usuario, string substancia)
         {
             if (this.conectar())
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO usuario.usuario_substancia (id_usuario, id_substancia) VALUES((select id_usuario from usuario.usuario where nome like '" + usuario + "'), (select id_substancia from produto.substancia where nome like '" + substancia + "'));", conn);
-                cmd.ExecuteNonQuery();
-
-                desconectar();
+                try
+                {
+                    NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO usuario.usuario_substancia (id_usuario, id_substancia) VALUES((select id_usuario from usuario.usuario where nome like '" + usuario + "'), (select id_substancia from produto.substancia where nome like '" + substancia + "'));", conn);
+                    cmd.ExecuteNonQuery();
+                    desconectar();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+                
+            }
+            else
+            {
+                return false;
             }
         }
         #endregion
