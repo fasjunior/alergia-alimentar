@@ -516,7 +516,11 @@ namespace SistemaAlergiaAlimentar
         #region ObterProdutosDaCategoriaUsuario
         public DataTable ObterProdutosDaCategoriaUsuario(int idCategoria, int idUsuario)
         {
-            string sql = "select distinct p.cod_barras, p.nome from produto.produto as p join produto.produto_substancia as ps on p.cod_barras = ps.cod_barras where id_categoria = :idCategoria and ps.id_substancia not in (select id_substancia from usuario.usuario_substancia where id_usuario = :idUsuario);";
+            string sql = "select cod_barras, nome from produto.produto " + 
+                         "where id_categoria = :idCategoria and cod_barras not in (select p.cod_barras from produto.produto_substancia as ps " + 	
+                                                                                  "join produto.produto as p on ps.cod_barras = p.cod_barras " +
+                                                                                  "join usuario.usuario_substancia as us on us.id_substancia = ps.id_substancia " +
+                                                                                  "where us.id_usuario = :idUsuario and p.id_categoria = :idCategoria);";
             NpgsqlCommand objcmd = null;
             if (this.conectar())
             {
