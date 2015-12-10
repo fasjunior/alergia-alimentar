@@ -164,5 +164,11 @@ namespace SistemaAlergiaAlimentar
             cadastroGUI.ShowDialog();
             AtualizarCbUsario();
         }
+
+        private void cadastrarProdutosDoEstabelecimentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroEstabelecimentoProduto frmCadastroEstabelecimentoProdutoGUI = new frmCadastroEstabelecimentoProduto();
+            frmCadastroEstabelecimentoProdutoGUI.ShowDialog();
+        }
     }
 }

@@ -110,6 +110,7 @@
             this.txtCodigo.Size = new System.Drawing.Size(248, 20);
             this.txtCodigo.TabIndex = 11;
             this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyUp);
             // 
             // cbCategoria
             // 

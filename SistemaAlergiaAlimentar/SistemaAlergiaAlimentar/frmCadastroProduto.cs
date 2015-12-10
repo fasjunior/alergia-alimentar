@@ -251,6 +251,25 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region verificarCodBarras
+        private Boolean verificarCodBarras(string codBarras)
+        {
+            Dados dados = new Dados();
+            DataTable dtCategorias = new DataTable();
+            dtCategorias = dados.ObterTodosProdutos();
+            Boolean status = false;
+            foreach (DataRow dr in dtCategorias.Rows)
+            {
+                codBarras = dr["cod_barras"].ToString();
+                if (txtCodigo.Text == codBarras)
+                {
+                    status = true;
+                }
+            }
+            return status;
+        }
+        #endregion
+
         private void btSalvar_Click(object sender, EventArgs e)
         {
             cadastrarProduto();
@@ -260,6 +279,32 @@ namespace SistemaAlergiaAlimentar
         private void btVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtCodigo_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                string strCodBarras = txtCodigo.Text.Replace(" ", "").Trim();
+                if (strCodBarras.Length == 14)
+                {
+                    DataTable dtProduto = new DataTable();
+                    Dados dados = new Dados();
+                    if (txtCodigo.Text != null && txtCodigo.Text != "   -   -   -    -")
+                    {
+                        if (verificarCodBarras(strCodBarras) == true)
+                        {
+                            btSalvar.Enabled = false;
+                            MessageBox.Show("Código de barras já cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

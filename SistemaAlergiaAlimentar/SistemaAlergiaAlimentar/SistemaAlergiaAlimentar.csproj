@@ -96,6 +96,12 @@
     <Compile Include="frmCadastro.Designer.cs">
       <DependentUpon>frmCadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroEstabelecimentoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroEstabelecimentoProduto.Designer.cs">
+      <DependentUpon>frmCadastroEstabelecimentoProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastro.resx">
       <DependentUpon>frmCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroEstabelecimentoProduto.resx">
+      <DependentUpon>frmCadastroEstabelecimentoProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroProduto.resx">
       <DependentUpon>frmCadastroProduto.cs</DependentUpon>
@@ -214,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\AddPersonIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\CarrinhoAddICo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

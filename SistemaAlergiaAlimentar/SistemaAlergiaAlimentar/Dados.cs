@@ -723,5 +723,36 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region ObterTodosEstabelecimentos
+        public DataTable ObterTodosEstabelecimentos()
+        {
+            string sql = "SELECT id_estabelecimento, nome FROM estabelecimento.estabelecimento";
+            NpgsqlCommand objcmd = null;
+
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    desconectar();
+                    return dt;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+
     }
 }
