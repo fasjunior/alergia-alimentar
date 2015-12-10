@@ -48,7 +48,7 @@ namespace SistemaAlergiaAlimentar
             int[] status = {0 , 0};
             decimal codBarras = 0;
             Boolean cadastro = true;
-            if (txtNome.Text != null && txtCodigo.Text != "   -   -   -    -" && cbFabricante.Text != " - Digite para adicionar ou selecione - " && cbFabricante.Text != "" && cbCategoria.Text != " - Digite para adicionar ou selecione - " && cbCategoria.Text != "")
+            if (txtNome.Text != null && txtCodigo.Text != "   -   -   -    -" && cbFabricante.Text != " - Selecione um Fabricante - " && cbFabricante.Text != "" && cbCategoria.Text != " - Selecione uma Categoria - " && cbCategoria.Text != "")
             {
                 txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                 string strCodBarras = txtCodigo.Text.Replace(" ", "").Trim();
@@ -216,7 +216,7 @@ namespace SistemaAlergiaAlimentar
         #region preencherCategoria
         private void preencheCategoria()
         {
-            cbCategoria.Text = " - Digite para adicionar ou selecione - ";
+            cbCategoria.Text = " - Selecione uma Categoria - ";
             Dados dados = new Dados();
             DataTable dtCategorias = new DataTable();
             dtCategorias = dados.ObterTodasCategorias();
@@ -235,7 +235,7 @@ namespace SistemaAlergiaAlimentar
         #region preencherFabricante
         private void preencheFabricante()
         {
-            cbFabricante.Text = " - Digite para adicionar ou selecione - ";
+            cbFabricante.Text = " - Selecione um Fabricante - ";
             Dados dados = new Dados();
             DataTable dtFabricante = new DataTable();
             dtFabricante = dados.ObterTodosFabricantes();
