@@ -388,6 +388,7 @@ namespace SistemaAlergiaAlimentar
                     }
                     cbEstabelecimento.Enabled = true;
                     cbEstabelecimento.Text = " - Selecione um estabelecimento - ";
+                    cbEstabelecimento.SelectedIndex = 0;
                 }
                 imprimirStatus(alergia);
 

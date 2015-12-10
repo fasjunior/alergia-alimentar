@@ -110,7 +110,7 @@ namespace SistemaAlergiaAlimentar
                 string nome = dr["nome"].ToString();
                 cbUsuario.Items.Add(new Item(nome, id));
             }
-
+            cbUsuario.SelectedIndex = 0;
         }
 
         private void AtualizarCbUsario()
@@ -170,5 +170,6 @@ namespace SistemaAlergiaAlimentar
             frmCadastroEstabelecimentoProduto frmCadastroEstabelecimentoProdutoGUI = new frmCadastroEstabelecimentoProduto();
             frmCadastroEstabelecimentoProdutoGUI.ShowDialog();
         }
+
     }
 }

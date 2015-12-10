@@ -16,6 +16,22 @@ namespace SistemaAlergiaAlimentar
         {
             InitializeComponent();
             preencheEstabelecimento();
+            btSalvar.Enabled = false;
+        }
+
+        private decimal obterCodigoBarras()
+        {
+            txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            string strCodBarras = txtCodigo.Text.Replace(" ", "").Trim();
+            decimal txtCodBarras = Convert.ToDecimal(strCodBarras);
+            return txtCodBarras;
+        }
+
+        private string obterCodigoBarrasText()
+        {
+            txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            string strCodBarras = txtCodigo.Text.Replace(" ", "").Trim();
+            return strCodBarras;
         }
 
         #region Item
@@ -62,10 +78,7 @@ namespace SistemaAlergiaAlimentar
             Dados dados = new Dados();
             if (txtCodigo.Text != null && txtCodigo.Text != "   -   -   -    -")
             {
-                txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                string strCodBarras = txtCodigo.Text.Replace(" ", "").Trim();
-                decimal txtCodBarras = Convert.ToDecimal(strCodBarras);
-                dtProduto = dados.ObterProduto(txtCodBarras);
+                dtProduto = dados.ObterProduto(obterCodigoBarras());
                 int idFabricante = Convert.ToInt32(dtProduto.Rows[0]["id_fabricante"]);
                 int idCategoria = Convert.ToInt32(dtProduto.Rows[0]["id_categoria"]);
                 string fabricante = dados.ObterFabricante(idFabricante);
@@ -93,7 +106,24 @@ namespace SistemaAlergiaAlimentar
                 nome = dr["nome"].ToString();
                 cbEstabelecimento.Items.Add(new Item(nome, id));
             }
+            cbEstabelecimento.SelectedIndex = 0;
+        }
+        #endregion
 
+        #region cadastroEstabelecimento
+        private bool cadastroEstabelecimento()
+        {
+            try
+            {
+                Dados dados = new Dados();
+                Item itemSelecionado = (Item)cbEstabelecimento.SelectedItem;
+                dados.cadastrar_produto_estabelecimento(itemSelecionado.Value, obterCodigoBarras());
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         #endregion
 
@@ -137,7 +167,11 @@ namespace SistemaAlergiaAlimentar
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-
+            if (cadastroEstabelecimento() == true)
+            {
+                MessageBox.Show("Produto cadastrado ao estabelecimento com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+            }
         }
 
         private void btEndereco_Click(object sender, EventArgs e)
@@ -159,8 +193,6 @@ namespace SistemaAlergiaAlimentar
                                                        dtEndereco.Rows[0]["estado"].ToString());
                 }
             }
-
-
             estabelecimentoGUI.ShowDialog();
         }
     }

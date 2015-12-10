@@ -38,7 +38,7 @@ namespace SistemaAlergiaAlimentar
         #endregion
 
         #region cadastrarProduto
-        private void cadastrarProduto()
+        private Boolean cadastrarProduto()
         {
             Dados dados = new Dados();
             DataTable dtProduto = new DataTable();
@@ -47,7 +47,7 @@ namespace SistemaAlergiaAlimentar
             int id;
             int[] status = {0 , 0};
             decimal codBarras = 0;
-            Boolean cadastro = true;
+            Boolean cadastro = true, retorno = false;
             if (txtNome.Text != null && txtCodigo.Text != "   -   -   -    -" && cbFabricante.Text != " - Selecione um Fabricante - " && cbFabricante.Text != "" && cbCategoria.Text != " - Selecione uma Categoria - " && cbCategoria.Text != "")
             {
                 txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
@@ -74,6 +74,7 @@ namespace SistemaAlergiaAlimentar
                 {
                     dados.cadastrar_produto(txtCodBarras, cadastrarFabricante(), cadastrarCategoria(), txtNome.Text);
                     cadastrarSubstancias(txtCodBarras);
+                    retorno = true;
                 }
                 else
                 {
@@ -95,6 +96,7 @@ namespace SistemaAlergiaAlimentar
             {
                 MessageBox.Show("Preencha todos os campos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            return retorno;
         }
         #endregion
 
@@ -272,8 +274,19 @@ namespace SistemaAlergiaAlimentar
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            cadastrarProduto();
-            this.Close();
+            try
+            {
+                if (cadastrarProduto())
+                {
+                    MessageBox.Show("Produto cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Close();
+                }
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private void btVoltar_Click(object sender, EventArgs e)
@@ -297,6 +310,10 @@ namespace SistemaAlergiaAlimentar
                         {
                             btSalvar.Enabled = false;
                             MessageBox.Show("Código de barras já cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            btSalvar.Enabled = true;
                         }
                     }
                 }

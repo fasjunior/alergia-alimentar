@@ -174,6 +174,7 @@
             // 
             // cbEstabelecimento
             // 
+            this.cbEstabelecimento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstabelecimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstabelecimento.FormattingEnabled = true;
             this.cbEstabelecimento.Location = new System.Drawing.Point(6, 20);

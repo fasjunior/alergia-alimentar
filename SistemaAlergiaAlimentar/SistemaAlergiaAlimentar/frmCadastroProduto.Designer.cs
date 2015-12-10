@@ -114,18 +114,22 @@
             // 
             // cbCategoria
             // 
+            this.cbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Location = new System.Drawing.Point(103, 98);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(248, 21);
+            this.cbCategoria.Sorted = true;
             this.cbCategoria.TabIndex = 10;
             // 
             // cbFabricante
             // 
+            this.cbFabricante.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFabricante.FormattingEnabled = true;
             this.cbFabricante.Location = new System.Drawing.Point(103, 71);
             this.cbFabricante.Name = "cbFabricante";
             this.cbFabricante.Size = new System.Drawing.Size(248, 21);
+            this.cbFabricante.Sorted = true;
             this.cbFabricante.TabIndex = 9;
             // 
             // label4

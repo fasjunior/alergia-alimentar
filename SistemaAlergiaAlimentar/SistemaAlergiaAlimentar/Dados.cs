@@ -232,11 +232,11 @@ namespace SistemaAlergiaAlimentar
         #endregion
 
         #region Cadastrar_Produto_Estabelecimento
-        public void cadastrar_produto_estabelecimento(String nome, decimal codBarras)
+        public void cadastrar_produto_estabelecimento(int idEstabelecimento, decimal codBarras)
         {
             if (this.conectar())
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO estabelecimento.estabelecimento_produto (id_estabelecimento, cod_barras) VALUES((select id_estabelecimento from estabelecimento.estabelecimento where nome like '" + nome + "'), '" + codBarras + "');", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO estabelecimento.estabelecimento_produto (id_estabelecimento, cod_barras) VALUES('" + idEstabelecimento + "', '" + codBarras + "');", conn);
                 cmd.ExecuteNonQuery();
 
                 desconectar();
@@ -752,6 +752,8 @@ namespace SistemaAlergiaAlimentar
             }
         }
         #endregion
+
+        
 
 
     }

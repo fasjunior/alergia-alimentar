@@ -40,12 +40,12 @@
             this.txtProduto = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btEndereco = new System.Windows.Forms.Button();
             this.cbEstabelecimento = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btVoltar = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
-            this.btEndereco = new System.Windows.Forms.Button();
             this.txtInformacao.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -174,6 +174,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estabelecimento:";
             // 
+            // btEndereco
+            // 
+            this.btEndereco.Image = global::SistemaAlergiaAlimentar.Properties.Resources.Lupa;
+            this.btEndereco.Location = new System.Drawing.Point(316, 12);
+            this.btEndereco.Name = "btEndereco";
+            this.btEndereco.Size = new System.Drawing.Size(37, 37);
+            this.btEndereco.TabIndex = 17;
+            this.btEndereco.UseVisualStyleBackColor = true;
+            this.btEndereco.Click += new System.EventHandler(this.btEndereco_Click);
+            // 
+            // cbEstabelecimento
+            // 
+            this.cbEstabelecimento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEstabelecimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEstabelecimento.FormattingEnabled = true;
+            this.cbEstabelecimento.Location = new System.Drawing.Point(51, 21);
+            this.cbEstabelecimento.Name = "cbEstabelecimento";
+            this.cbEstabelecimento.Size = new System.Drawing.Size(259, 21);
+            this.cbEstabelecimento.Sorted = true;
+            this.cbEstabelecimento.TabIndex = 15;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -183,15 +204,6 @@
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Nome:";
-            // 
-            // cbEstabelecimento
-            // 
-            this.cbEstabelecimento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEstabelecimento.FormattingEnabled = true;
-            this.cbEstabelecimento.Location = new System.Drawing.Point(51, 21);
-            this.cbEstabelecimento.Name = "cbEstabelecimento";
-            this.cbEstabelecimento.Size = new System.Drawing.Size(259, 21);
-            this.cbEstabelecimento.TabIndex = 15;
             // 
             // panel1
             // 
@@ -224,16 +236,6 @@
             this.btSalvar.Text = "Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
-            // 
-            // btEndereco
-            // 
-            this.btEndereco.Image = global::SistemaAlergiaAlimentar.Properties.Resources.Lupa;
-            this.btEndereco.Location = new System.Drawing.Point(316, 12);
-            this.btEndereco.Name = "btEndereco";
-            this.btEndereco.Size = new System.Drawing.Size(37, 37);
-            this.btEndereco.TabIndex = 17;
-            this.btEndereco.UseVisualStyleBackColor = true;
-            this.btEndereco.Click += new System.EventHandler(this.btEndereco_Click);
             // 
             // frmCadastroEstabelecimentoProduto
             // 

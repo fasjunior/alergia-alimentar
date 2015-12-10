@@ -53,7 +53,6 @@ namespace SistemaAlergiaAlimentar
         {
             if(dtProCat != null && dtProCat.Rows.Count > 0)
             {
-                cbSugestao.Text = " - Selecione um Produto - ";
                 btPesquisar.Enabled = false;
                 dtProdutosCategoria = dtProCat;
                 foreach (DataRow dr in dtProdutosCategoria.Rows)
@@ -61,6 +60,9 @@ namespace SistemaAlergiaAlimentar
                     decimal cod_barras = Convert.ToDecimal(dr["cod_barras"]);
                     string nome = dr["nome"].ToString();
                     cbSugestao.Items.Add(new Item(nome, cod_barras));
+                    cbSugestao.Text = " - Selecione um Produto - ";
+                    cbSugestao.SelectedIndex = 0;
+
                 }
             }
             else
