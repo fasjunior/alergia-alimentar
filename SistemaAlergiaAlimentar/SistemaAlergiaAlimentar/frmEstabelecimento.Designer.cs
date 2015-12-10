@@ -60,7 +60,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(331, 104);
+            this.label2.Location = new System.Drawing.Point(241, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 13);
             this.label2.TabIndex = 8;
@@ -119,11 +119,10 @@
             // txtUF
             // 
             this.txtUF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUF.Location = new System.Drawing.Point(361, 100);
-            this.txtUF.Mask = ">LL";
+            this.txtUF.Location = new System.Drawing.Point(271, 100);
             this.txtUF.Name = "txtUF";
             this.txtUF.ReadOnly = true;
-            this.txtUF.Size = new System.Drawing.Size(25, 20);
+            this.txtUF.Size = new System.Drawing.Size(115, 20);
             this.txtUF.TabIndex = 16;
             this.txtUF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -165,7 +164,7 @@
             this.txtCidade.Location = new System.Drawing.Point(75, 100);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.ReadOnly = true;
-            this.txtCidade.Size = new System.Drawing.Size(250, 20);
+            this.txtCidade.Size = new System.Drawing.Size(161, 20);
             this.txtCidade.TabIndex = 20;
             this.txtCidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

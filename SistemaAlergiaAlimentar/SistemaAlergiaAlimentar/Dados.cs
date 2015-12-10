@@ -123,13 +123,26 @@ namespace SistemaAlergiaAlimentar
         #endregion
 
         #region Cadastrar_Estabelecimento
-        public void cadastrar_estabelecimento(string endereco, int cep, int numero, string nome)
+        public bool cadastrar_estabelecimento(string endereco, int cep, int numero, string nome)
         {
             if (this.conectar())
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO estabelecimento.estabelecimento(id_endereco, nome) VALUES((select id_endereco from estabelecimento.endereco where cep = '" + cep + "' and endereco = '" + endereco + "' and numero = '" + numero + "'),'" + nome + "');", conn);
-                cmd.ExecuteNonQuery();
-                desconectar();
+                try
+                {
+                    NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO estabelecimento.estabelecimento(id_endereco, nome) VALUES((select id_endereco from estabelecimento.endereco where cep = '" + cep + "' and endereco = '" + endereco + "' and numero = '" + numero + "' order by id_endereco desc limit 1),'" + nome + "');", conn);
+                    cmd.ExecuteNonQuery();
+                    desconectar();
+
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
 
         }
