@@ -110,7 +110,11 @@ namespace SistemaAlergiaAlimentar
                 string nome = dr["nome"].ToString();
                 cbUsuario.Items.Add(new Item(nome, id));
             }
-            cbUsuario.SelectedIndex = 0;
+            if (cbUsuario.Items.Count != 0)
+            {
+                 cbUsuario.SelectedIndex = 0;
+            }
+
         }
 
         private void cbUsuario_SelectedIndexChanged(object sender, EventArgs e)
