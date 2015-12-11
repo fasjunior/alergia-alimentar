@@ -99,7 +99,7 @@ namespace SistemaAlergiaAlimentar
 
         private void InicializaCbUsuario()
         {
-            cbUsuario.Text = " - Selecione um Usuário - ";
+            cbUsuario.Items.Clear();
             Dados dados = new Dados();
             DataTable dtUsuarios = new DataTable();
             dtUsuarios = dados.ObterTodosUsuarios();
