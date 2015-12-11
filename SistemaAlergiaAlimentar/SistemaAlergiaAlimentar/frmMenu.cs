@@ -66,7 +66,7 @@ namespace SistemaAlergiaAlimentar
         {
             frmCadastro cadastroGUI = new frmCadastro();
             cadastroGUI.ShowDialog();
-            AtualizarCbUsario();
+            InicializaCbUsuario();
         }
 
         private void itemSobre_Click(object sender, EventArgs e)
@@ -113,23 +113,6 @@ namespace SistemaAlergiaAlimentar
             cbUsuario.SelectedIndex = 0;
         }
 
-        private void AtualizarCbUsario()
-        {
-            Dados dados = new Dados();
-            DataTable dtUsuarios = new DataTable();
-            dtUsuarios = dados.ObterTodosUsuarios();
-            int id =0;
-            string nome=null;
-
-            foreach (DataRow dr in dtUsuarios.Rows)
-            {
-                id = Convert.ToInt32(dr["id_usuario"]);
-                nome = dr["nome"].ToString();
-            }
-            cbUsuario.Items.Add(new Item(nome, id));
-
-        }
-
         private void cbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             btPesquisar.Enabled = true;
@@ -162,7 +145,7 @@ namespace SistemaAlergiaAlimentar
         {
             frmCadastro cadastroGUI = new frmCadastro();
             cadastroGUI.ShowDialog();
-            AtualizarCbUsario();
+            InicializaCbUsuario();
         }
 
         private void cadastrarProdutosDoEstabelecimentoToolStripMenuItem_Click(object sender, EventArgs e)
