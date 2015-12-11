@@ -753,7 +753,40 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
-        
+        #region ObterTodosEstabelecimentos
+        public DataTable ObterTodosEstabelecimentos(decimal codBarras)
+        {
+            string sql = "SELECT id_estabelecimento, nome FROM estabelecimento.estabelecimento " + 
+                         "WHERE id_estabelecimento NOT IN (SELECT id_estabelecimento FROM estabelecimento.estabelecimento_produto WHERE cod_barras = :codBarras);";
+            NpgsqlCommand objcmd = null;
+
+            if (this.conectar())
+            {
+                try
+                {
+                    objcmd = new NpgsqlCommand(sql, conn);
+                    NpgsqlDataAdapter adp = new NpgsqlDataAdapter(objcmd);
+                    objcmd.Parameters.Add(new NpgsqlParameter("codBarras", NpgsqlDbType.Numeric));
+                    objcmd.Parameters[0].Value = codBarras;
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    desconectar();
+                    return dt;
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+
 
 
     }

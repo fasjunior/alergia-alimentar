@@ -15,7 +15,8 @@ namespace SistemaAlergiaAlimentar
         public frmCadastroEstabelecimentoProduto()
         {
             InitializeComponent();
-            preencheEstabelecimento();
+            //preencheEstabelecimento();
+            cbEstabelecimento.Enabled = false;
             btSalvar.Enabled = false;
         }
 
@@ -94,10 +95,12 @@ namespace SistemaAlergiaAlimentar
         #region preencherEstabelecimento
         private void preencheEstabelecimento()
         {
-            cbEstabelecimento.Text = " - Selecione um Estabelecimento - ";
+            if (!cbEstabelecimento.Enabled)
+                cbEstabelecimento.Enabled = true;
+            cbEstabelecimento.Items.Clear();
             Dados dados = new Dados();
             DataTable dtEstabelecimentos = new DataTable();
-            dtEstabelecimentos = dados.ObterTodosEstabelecimentos();
+            dtEstabelecimentos = dados.ObterTodosEstabelecimentos(obterCodigoBarras());
             int id = 0;
             string nome = null;
             foreach (DataRow dr in dtEstabelecimentos.Rows)
@@ -146,11 +149,14 @@ namespace SistemaAlergiaAlimentar
                         if (verificarCodBarras(strCodBarras) == false)
                         {
                             btSalvar.Enabled = false;
+                            cbEstabelecimento.Items.Clear();
+                            cbEstabelecimento.Enabled = false;
                             MessageBox.Show("Código de barras não cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
                             preencheProduto();
+                            preencheEstabelecimento();
                         }
                     }
                 }
@@ -169,7 +175,7 @@ namespace SistemaAlergiaAlimentar
         {
             if (cadastroEstabelecimento() == true)
             {
-                MessageBox.Show("Produto cadastrado ao estabelecimento com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Produto adicionado ao estabelecimento com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
         }
