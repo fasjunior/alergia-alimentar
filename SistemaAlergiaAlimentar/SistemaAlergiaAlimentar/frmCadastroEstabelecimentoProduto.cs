@@ -20,6 +20,7 @@ namespace SistemaAlergiaAlimentar
             btSalvar.Enabled = false;
         }
 
+        #region obterCodigoBarras
         private decimal obterCodigoBarras()
         {
             txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
@@ -27,13 +28,14 @@ namespace SistemaAlergiaAlimentar
             decimal txtCodBarras = Convert.ToDecimal(strCodBarras);
             return txtCodBarras;
         }
+        #endregion
 
+        #region obterCodigoBarrasText
         private string obterCodigoBarrasText()
         {
-            txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-            string strCodBarras = txtCodigo.Text.Replace(" ", "").Trim();
-            return strCodBarras;
+            return obterCodigoBarras().ToString();
         }
+        #endregion
 
         #region Item
         private class Item
@@ -62,7 +64,7 @@ namespace SistemaAlergiaAlimentar
             foreach (DataRow dr in dtCategorias.Rows)
             {
                 codBarras = dr["cod_barras"].ToString();
-                if (txtCodigo.Text == codBarras)
+                if (obterCodigoBarras().ToString() == codBarras)
                 {
                     status = true;
                 }
@@ -109,7 +111,10 @@ namespace SistemaAlergiaAlimentar
                 nome = dr["nome"].ToString();
                 cbEstabelecimento.Items.Add(new Item(nome, id));
             }
-            cbEstabelecimento.SelectedIndex = 0;
+            if (cbEstabelecimento.Items.Count != 0)
+            {
+                cbEstabelecimento.SelectedIndex = 0;
+            }
         }
         #endregion
 

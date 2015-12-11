@@ -28,7 +28,6 @@ namespace SistemaAlergiaAlimentar
             }
             public override string ToString()
             {
-                // Generates the text shown in the combo box
                 return Name;
             }
         }
@@ -351,8 +350,8 @@ namespace SistemaAlergiaAlimentar
             List<string> substancias = dados.ObterSubstanciasDoUsuario(idUsuario);
             SelecionarSubstancias(substancias);
             PreencherProduto(codBarras);
-            txtCodigo.Text = codBarras.ToString();
             txtCodigo.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
+            txtCodigo.Text = codBarras.ToString().PadLeft(14).Replace(" ","0");
             txtCodigo.Enabled = false;
             btPesquisar.Enabled = false;
         }
@@ -388,7 +387,10 @@ namespace SistemaAlergiaAlimentar
                     }
                     cbEstabelecimento.Enabled = true;
                     cbEstabelecimento.Text = " - Selecione um estabelecimento - ";
-                    cbEstabelecimento.SelectedIndex = 0;
+                    if (cbEstabelecimento.Items.Count != 0)
+                    {
+                        cbEstabelecimento.SelectedIndex = 0;
+                    }
                 }
                 imprimirStatus(alergia);
 
@@ -454,8 +456,6 @@ namespace SistemaAlergiaAlimentar
                                                        dtEndereco.Rows[0]["estado"].ToString());
                 }
             }
-            
-            
             estabelecimentoGUI.ShowDialog();
         }
  
@@ -467,7 +467,6 @@ namespace SistemaAlergiaAlimentar
                 txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                 string strCodBarras = txtCodigo.Text.Replace(" ","").Trim();
                 decimal codBarras = Convert.ToDecimal(strCodBarras);
-                
                 //colocando novamente a máscara do código de barras
                 txtCodigo.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
                 if(PreencherProduto(codBarras))
@@ -492,9 +491,7 @@ namespace SistemaAlergiaAlimentar
             else
             {
                 MessageBox.Show("Digite um código de barras!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            
+            }  
         }
 
         private void btVoltar_Click(object sender, EventArgs e)

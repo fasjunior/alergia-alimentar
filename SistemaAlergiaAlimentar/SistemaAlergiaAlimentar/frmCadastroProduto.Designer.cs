@@ -109,7 +109,6 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(248, 20);
             this.txtCodigo.TabIndex = 11;
-            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyUp);
             // 
             // cbCategoria
@@ -169,7 +168,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(248, 20);
             this.txtNome.TabIndex = 2;
-            this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 

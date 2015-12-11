@@ -44,10 +44,6 @@ namespace SistemaAlergiaAlimentar
             this.codBarras = codBarras;
         }
 
-        public void vereificarBotaoPesquisar()
-        {
-
-        }
 
         public void getDataTable(DataTable dtProCat)
         {
@@ -60,16 +56,21 @@ namespace SistemaAlergiaAlimentar
                     decimal cod_barras = Convert.ToDecimal(dr["cod_barras"]);
                     string nome = dr["nome"].ToString();
                     cbSugestao.Items.Add(new Item(nome, cod_barras));
-                    cbSugestao.Text = " - Selecione um Produto - ";
-                    cbSugestao.SelectedIndex = 0;
-
+                    if (cbSugestao.Items.Count != 0)
+                    {
+                        cbSugestao.Enabled = true;
+                        cbSugestao.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        cbSugestao.Enabled = false;
+                    }
                 }
             }
             else
             {
                 btPesquisar.Enabled = false;
                 cbSugestao.Enabled = false;
-                cbSugestao.Text = "Nenhum Produto encontrado!";
             }
         }
 

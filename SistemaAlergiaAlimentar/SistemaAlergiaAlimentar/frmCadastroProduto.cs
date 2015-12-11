@@ -253,6 +253,23 @@ namespace SistemaAlergiaAlimentar
         }
         #endregion
 
+        #region obterCodigoBarras
+        private decimal obterCodigoBarras()
+        {
+            txtCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            string strCodBarras = txtCodigo.Text.Replace(" ", "").Trim();
+            decimal txtCodBarras = Convert.ToDecimal(strCodBarras);
+            return txtCodBarras;
+        }
+        #endregion
+
+        #region obterCodigoBarrasText
+        private string obterCodigoBarrasText()
+        {
+            return obterCodigoBarras().ToString();
+        }
+        #endregion
+
         #region verificarCodBarras
         private Boolean verificarCodBarras(string codBarras)
         {
@@ -263,7 +280,7 @@ namespace SistemaAlergiaAlimentar
             foreach (DataRow dr in dtCategorias.Rows)
             {
                 codBarras = dr["cod_barras"].ToString();
-                if (txtCodigo.Text == codBarras)
+                if (obterCodigoBarrasText() == codBarras)
                 {
                     status = true;
                 }
@@ -278,7 +295,7 @@ namespace SistemaAlergiaAlimentar
             {
                 if (cadastrarProduto())
                 {
-                    MessageBox.Show("Produto cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Produto cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }
@@ -306,7 +323,7 @@ namespace SistemaAlergiaAlimentar
                     Dados dados = new Dados();
                     if (txtCodigo.Text != null && txtCodigo.Text != "   -   -   -    -")
                     {
-                        if (verificarCodBarras(strCodBarras) == true)
+                        if (verificarCodBarras(obterCodigoBarrasText()) == true)
                         {
                             btSalvar.Enabled = false;
                             MessageBox.Show("Código de barras já cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
