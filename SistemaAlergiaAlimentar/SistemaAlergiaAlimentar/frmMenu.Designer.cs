@@ -97,7 +97,7 @@
             this.menuAjuda});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(348, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(339, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -183,9 +183,9 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusDataHora,
             this.statusConexao});
-            this.statusStrip.Location = new System.Drawing.Point(0, 162);
+            this.statusStrip.Location = new System.Drawing.Point(0, 134);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(348, 22);
+            this.statusStrip.Size = new System.Drawing.Size(339, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 6;
             this.statusStrip.Text = "statusStrip1";
@@ -204,7 +204,7 @@
             this.statusConexao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusConexao.Name = "statusConexao";
             this.statusConexao.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.statusConexao.Size = new System.Drawing.Size(249, 17);
+            this.statusConexao.Size = new System.Drawing.Size(240, 17);
             this.statusConexao.Spring = true;
             this.statusConexao.Text = "Status SQL";
             this.statusConexao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -217,7 +217,7 @@
             this.groupBox1.Controls.Add(this.cbUsuario);
             this.groupBox1.Controls.Add(this.btCadastrar);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(17, 42);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBox1.Size = new System.Drawing.Size(315, 98);
@@ -243,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 184);
+            this.ClientSize = new System.Drawing.Size(339, 156);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
